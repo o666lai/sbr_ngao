@@ -20,21 +20,21 @@ pdf: subaru_ngao_SR_en.pdf
 
 subaru_ngao_SR_en.dvi: clean subaru_ngao_SR_en.tex $(BIBFILES) $(TEXFILES)
 	platex subaru_ngao_SR_en.tex
-	bibtex science/minowa/minowa
-	bibtex science/koyama/ykoyama
-	bibtex science/saito/saito
-	bibtex science/shibuya/shibuya
-	bibtex science/imanishi/ImanishiSJ
-	bibtex science/yasui/yasui
-	bibtex science/nishiyama/nishi
-	bibtex science/iwata/ngao_spec_simulation
-	bibtex science/iwata/legacy_survey
-	bibtex science/iwata/nbf
-	bibtex science/pyo/pyo
-	bibtex science/fukagawa/fukagawa
-	bibtex science/chiba/chiba
-	bibtex simulation/akiyama/akiyama
-	bibtex simulation/oya/oya
+#	bibtex science/minowa/minowa
+#	bibtex science/koyama/ykoyama
+#	bibtex science/saito/saito
+#	bibtex science/shibuya/shibuya
+#	bibtex science/imanishi/ImanishiSJ
+#	bibtex science/yasui/yasui
+#	bibtex science/nishiyama/nishi
+#	bibtex science/iwata/ngao_spec_simulation
+#	bibtex science/iwata/legacy_survey
+#	bibtex science/iwata/nbf
+#	bibtex science/pyo/pyo
+#	bibtex science/fukagawa/fukagawa
+#	bibtex science/chiba/chiba
+#	bibtex simulation/akiyama/akiyama
+#	bibtex simulation/oya/oya
 #	bibtex project/hayano/system_design
 	platex subaru_ngao_SR_en.tex
 	platex subaru_ngao_SR_en.tex
