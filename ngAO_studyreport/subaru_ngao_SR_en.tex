@@ -1,0 +1,113 @@
+%%% subaru_ngao_SR_en.tex
+% 20120205 iwata subaru_ngao.tex
+% 20130310 iwata subaru_ngao_SR_en.tex from subaru_ngao.tex
+
+\documentclass[10pt]{book}
+\usepackage{natbib}
+\usepackage[sectionbib]{chapterbib}
+\usepackage{aas_macros}
+\usepackage{graphicx}
+%\usepackage[dvipdfm]{hyperref}
+\usepackage{color}
+\usepackage{lscape}
+\usepackage{fancybox}
+% fancyhdr package
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\bfseries \thepage}
+\fancyhead[LO]{\rightmark}
+\fancyhead[RE]{\rightmark}
+% PDF toc
+%\ifnum 42146=\euc"A4A2
+%\AtBeginDvi{\special{pdf:tounicode EUC-UCS2}}\else
+%\AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}}\fi
+
+
+\definecolor{violet}{rgb}{0.4,0.0,0.4}
+\definecolor{dblue}{rgb}{0.0,0.0,0.5}
+\usepackage[dvipdfmx,%
+bookmarks=true,%
+bookmarksnumbered=true,%
+colorlinks=true,%
+pdftitle={Subaru ngAO Study Report},%
+pdfauthor={Subaru ngAO Working Group},%
+citecolor=dblue,%
+linkcolor=dblue,%
+urlcolor=dblue,%
+]{hyperref}
+\citestyle{aa}
+\bibliographystyle{apj}
+
+\oddsidemargin   -0.25cm
+\evensidemargin  -0.25cm
+\topmargin       -0.5cm
+\textwidth        16.5cm
+\textheight       23.0cm
+\parindent        11pt
+
+\def\gsim{\mathrel{\raise0.35ex\hbox{$\scriptstyle >$}\kern-0.6em % Greater/squiggles
+\lower0.40ex\hbox{{$\scriptstyle \sim$}}}}
+\def\lsim{\mathrel{\raise0.35ex\hbox{$\scriptstyle <$}\kern-0.6em % Less than/squiggles 
+\lower0.40ex\hbox{{$\scriptstyle \sim$}}}}
+
+\begin{document}
+
+\title{\Huge Subaru Telescope\\Next-Generation Wide-Field Adaptive
+Optics\\Study Report\\(Draft)}
+\author{Subaru Next-Generation AO Working Group}
+%\begin{titlepage}
+\maketitle
+
+%\clearpage
+%\input{members}
+
+\tableofcontents
+
+\clearpage
+\input{acronym}
+
+%%% Executive Summary
+\include{es/es}
+
+
+\end{document}
+
+%%% Science
+\include{science/sci_intro}
+%\include{science/minowa/minowa}
+%\include{science/iwata/ngao_spec_simulation}
+\include{science/iwata/legacy_survey}
+\include{science/iwata/nbf}
+\include{science/koyama/ykoyama}
+\include{science/saito/saito}
+\include{science/imanishi/ImanishiSJ}
+\include{science/shibuya/shibuya}
+\include{science/yasui/yasui}
+\include{science/chiba/chiba}
+\include{science/nishiyama/nishi}
+\include{science/pyo/pyo}
+\include{science/fukagawa/fukagawa}
+\include{science/iwata/sci_summary} %\section{Science Summary: System Requirements}
+
+%%% AO Simulation
+\include{simulation/oya/oya}
+\include{simulation/akiyama/akiyama}
+\include{science/minowa/minowa}
+\include{science/iwata/ngao_spec_simulation}
+
+%%% System Design
+\include{project/hayano/system_design}
+
+%%% Instruments
+%\chapter{Instruments for Subaru Next-Generation AO}
+\include{inst/inst}
+\include{inst/optics/optcraft}
+\include{inst/inst_other_issue}
+
+%%% Development Plan
+\include{project/hayano/development_plan}
+
+\include{project/actions/action_items}
+
+\end{document}
