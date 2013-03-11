@@ -1,0 +1,254 @@
+%\documentclass[10pt]{jarticle}
+%\usepackage{graphicx}
+%\usepackage{url}
+
+%\oddsidemargin   -0.25cm
+%\evensidemargin  -0.25cm
+%\topmargin       -0.25cm
+%\textwidth        16.5cm
+%\textheight       24.0cm
+%\parindent        10pt
+
+%\def\gsim{\mathrel{\raise0.35ex\hbox{$\scriptstyle >$}\kern-0.6em % Greater/squiggles
+%\lower0.40ex\hbox{{$\scriptstyle \sim$}}}}
+%\def\lsim{\mathrel{\raise0.35ex\hbox{$\scriptstyle <$}\kern-0.6em % Less than/squiggles 
+%\lower0.40ex\hbox{{$\scriptstyle \sim$}}}}
+
+\def\thisdir{development/design/}
+
+%\begin{document}
+
+\chapter{System Study for Subaru Next-Generation AO
+\label{chap:system_design}}
+
+\section{Comparisons of Candidate AO Systems for Subaru Telescope
+ Next-Generation AO
+\label{sec:various_ao_systems}}
+
+%%% 20130311 ommited by Iwata
+
+\section{Overview of the System}
+
+%%% 20130311 ommited by Iwata.
+%%% Need to include overview of NIR instrument(s) as well?
+
+現時点で議論が進められている次世代AOおよび赤外線装置の
+基本仕様を表\ref{tab:spec}に示した。この仕様は今後の詳細な
+検討によっては大幅に変更される可能性がある。
+\begin{table}[t]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+ Item & Specification \\
+ \hline
+ 観測波長域 & 0.9--2.5 $\mu$m (サイエンスWSからの要求は0.6--5$\mu$m\\
+ 観測モード & 撮像、分光（面分光を考慮する）\\
+ 観測視野 & $\phi$ 15分角（20分角目標）\\
+ 焦点位置 & カセグレン焦点 \\
+ \hline
+ ガイド星 & 4 LGS、NGS（2$\sim$4個か？）\\
+ ガイド星の選択範囲 & LGSは観測視野の端、NGSは観測視野内 \\
+ 波面センサー & ガイド星にそれぞれ1つずつ (Guide star oriented)\\
+ 波面センサータイプ & シャックハルトマン型（ピラミッド型も要検討） \\ 
+ 波面センサー素子数 & 100程度かそれ以上 (高ストレールなら1000素子程度も) \\
+ 波面センサーサンプリング周波数 & 500Hz以上（GLAOは100Hzでも可） \\
+ 可変形鏡 & 副鏡を可変形鏡化 \\
+ 可変形鏡素子数 & 500$\sim$1000程度 \\
+ 波面制御モード & GLAO (LTAO、ExAOなどへの切替対応が必要か？)\\
+ \hline
+\end{tabular}
+\caption{次世代AOおよび装置の基本仕様案}
+\label{tab:spec}
+\end{center}
+\end{table}
+
+\section{Technical Challenges}
+
+上述したTomography AOに共通する技術的な課題は、
+レーザー技術および複数レーザーガイド星の製作技術、
+大気ゆらぎの高さ方向のtomography推定技術、
+可変副鏡、制御計算機などがある。
+ただし、世界の潮流としてtomography AOは盛んに
+システム検討、技術検討が進められており、
+技術的な課題はかなり克服されつつあるのが現状である。
+
+初期のレーザーガイド星は色素レーザーが主体であった。
+これはレーザー媒質が液体であり、安定性、保守性に
+大きな労力が必要である。また色素の劣化による出力低下が
+避けられない。次に半導体レーザーとレーザー結晶の
+技術発展があり、固体レーザーが台頭してくる。
+今ではナトリウム層を励起するための和周波発生を用いた
+全固体レーザーが技術的に成熟してきた。
+GeminiのMCAOでは出力50Wのレーザーを5つに分割して、
+5個のナトリウムレーザーガイド星の作成に成功している。
+一方、ファイバーレーザー技術を用いたコンパクトかつ
+安定したレーザーの開発がESOを中心に進められ、
+ドイツのTOPTICA社とカナダのMPB社の共同で
+連続波20Wのレーザーが製品化された。
+このレーザーは他の8mクラスの次世代AOおよび
+ELT用AOのレーザーガイド星用光源候補として大きな
+期待が寄せられている。我々もすでにMPB社と
+秘密保持契約を締結し、技術情報の交換、
+基本仕様の検討準備を進めている。
+また、レイリー散乱を利用したレーザーガイド星も
+WHT、MMTなどで地道に試験が続けられている。
+8mクラスのsingle conjugate レーザーガイド星AOが
+安定して運用されており、レーザーガイド星に
+関する基礎技術、運用技術はおおいに進歩した。
+レーザーシステムについて表\ref{tab:Laser}にまとめた。
+
+\begin{table}[t]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+ %望遠鏡 & Subaru & Keck I & Keck II & Gemini N & VLT  & Gemini S & LBT \\
+% \hline
+%レーザーガイド星 & Na層 & Na層 & Na層 & Na層. & Na層  & Na層 & レイリー散乱 \\
+%レーザータイプ & 和周波 & 和周波 & 色素 & 和周波. & 色素->ファイバー  & 和周波 & 全固体グリーン \\
+%レーザー媒質 & 固体結晶 & 固体結晶 & 色素有機液体 & 固体結晶. & 色素有機液体->光ファイバー  & 固体結晶 & 固体結晶 \\
+%出力 & $\sim$6W & $\sim$40W & $\sim$15W & $\sim$15W & $\sim$10W->$\sim$25W & $\sim$10W / beacon & $\sim$18W / beacon \\
+%レーザー発振形態 & 143MHz & 75MHz & 13kHz or 26kHz & 75MHz & 連続波 & 75MHz & 10kHz \\
+ガイド星タイプ & \multicolumn{3}{|c|}{ナトリウム層LGS} &  \multicolumn{1}{|c|}{レイリーLGS} \\
+\hline
+レーザータイプ & 色素 & 全固体和周波 & 光ファイバーレーザー & 全固体　\\
+\hline
+レーザー媒質 & 液体有機溶媒 & 固体結晶 & 光ファイバー& 固体結晶 \\
+\hline
+望遠鏡 & Keck II & Subaru, Keck I & VLT（次世代） & LBT \\
+             & VLT & Gemini N\&S &       &  (Na-LGSも計画中) \\
+\hline
+出力 & 15W(Keck II) & 6W(Subaru) & 25W(VLT次世代) & 18W$\times$3 (LBT) \\
+    &    &  40W(Keck I) & & \\
+    &  10W(VLT) & 15W(GeminiN) & &  \\
+    &    &  10W$\times$5 (GeminiS) & & \\
+\hline
+発振形態 & 26kHz(Keck II) & 143MHz(Subaru) & 連続波(VLT次世代) & 10kHz(LBT) \\
+  & 連続波(VLT) & 75MHz(Keck I) & & \\
+  &   & 75MHz(Gemini N\&S) & & \\
+\hline
+\end{tabular}
+\caption{レーザーガイド星用レーザーシステムの比較}
+\label{tab:Laser}
+\end{center}
+\end{table}
+
+
+最大角度でも10分角という狭い範囲の光源を用いて、
+途中にある大気ゆらぎの3次元分布を推定する
+tomography推定技術は、一般の3次元tomographyとは
+かなり異なる要素を含んでいる。しかし、多くの
+AO tomographyアルゴリズムが提唱され、計算機
+シミュレーション、テストベッドによる実験が
+進められてきた。詳細な検討およびシステムに特化した
+検討はまだ必要であるが、基礎的なAO tomographyの
+研究は十分なされてきている。すばる次世代AO検討
+ワーキンググループは、今後詳細検討を続けていく予定である。
+
+特にGLAOは可変副鏡が重要なコンポーネントとなる。
+日本ではまだ可変副鏡の検討は進められていないが、
+アリゾナのMMT、LBTではすでに可変副鏡が搭載され、
+明るいガイド星でよい補正性能を達成している。
+またチリのVLTのための可変副鏡が製作中である。
+これらの可変副鏡を製作したのはイタリアのMicrogate社である。
+我々ワーキンググループはすでにMicrogate社とコンタクトをとり、
+すばる望遠鏡用の可変副鏡の概念検討の準備を進めている。
+
+複数のガイド星、複数あるいは多素子の可変形鏡を制御するための
+計算機に要求される性能は非常に高い。我々ワーキンググループは、
+まだ制御計算機の検討を始めていないが、TMT用のファーストライトAO
+であるNFIRAOSの制御計算機検討が十分参考になると考えている。
+
+\section{Interfaces with the Subaru Telescope -- 20130311Iwata: to be ommitted?}
+
+すばる望遠鏡次世代AOの第一候補であるGLAOについて、
+望遠鏡とのインターフェースを考察した。
+GLAOの最大の特徴は、可変副鏡を用いていることで、
+反射面が少なく効率が高いことがあげられる。
+従って、観測装置はカセグレン焦点に設置するのがよい。
+また、GLAOでは10分角を超える視野が魅力となっている。
+現在使われているカセグレン焦点の可視用大気分散補正光学系は
+そこまでの視野を確保できていない。GLAOと近赤外線観測装置の
+組み合わせのときは大気分散補正光学系は取り外す必要がある。
+
+カセグレン焦点の観測装置の検討も重要である。
+GLAOの広視野を生かす近赤外線撮像分光装置を検討する上で、
+望遠鏡の光学収差、装置のサイズ、重量、設計製造可能な光学系の設計
+などが重要なファクターとなる。
+
+可変副鏡はすばる望遠鏡のトップユニットに接続される。
+すばる望遠鏡は主焦点部に広視野カメラなどを
+搭載するため、トップユニット交換機の重量制限が
+3tである。現在製作中のVLT用可変副鏡の総重量は1500kg
+程度なので軽量化の努力は不要である。
+現在使用中の赤外副鏡は直径が1265mmであり、
+VLTの可変副鏡直径よりも若干大きい。
+カセグレン焦点のF値の変更も考慮した可変副鏡の仕様策定を
+今後進めていくことになる。
+トップユニットにおける電力供給、制御線、ネットワーク、冷却水
+などの基本的なインフラ、トップユニットとのインターフェース、
+などの検討も重要課題である。
+
+\section{Subaru GLAO System Structure}
+
+
+%%% 20130311 ommitted by Iwata
+
+%%% 20130311 additions by Iwata
+\section{Components of GLAO: Adaptive Secondary Mirror}
+
+\section{Components of GLAO: Wavefront Sensing System}
+
+\section{Components of GLAO: Laser System}
+
+\section{Components of GLAO: RTC}
+
+%%% 20130311 additions by Iwata
+\section{Telescope Modifications}
+
+\subsection{Top Unit}
+
+\subsection{Cassegrain Focus}
+
+\subsection{Other Areas?}
+
+
+
+\section{Operations of GLAO}
+
+すばる望遠鏡は主焦点観測装置があるため、可変副鏡を常設することは
+運用上できない。そのため、可変副鏡はトップユニット交換装置を
+用いて着脱する必要がある。そのためのインターフェース仕様を
+確定しなければならない。また可変副鏡の不使用時の保管場所の確保と
+そのインターフェースとインフラの仕様についても決める必要がある。
+また、交換時の環境条件、振動条件、鏡の保持あるいは安全な状態管理に
+ついても検討を要する。
+
+一方、すばる望遠鏡の副鏡は凸面である。凸面の可変副鏡のキャリブレーション
+方法についても検討が必要だ。また、可変副鏡の再蒸着の必要性、定期的な
+保守項目なども初期検討の段階で議論しておくべきであろう。
+
+レーザー射出システムは、望遠鏡のセンターセクションに常設することを
+検討中である。着脱の必要性はないが、レーザーの保守、部品の交換、
+経年変化への対応、安全管理を含めたレーザー運用体制は必須となる。
+
+波面センサーはカセグレン焦点上部のカセグレンフランジと呼ばれる中に
+設置される。この部分はアクセスが大変難しく、装置の故障、改修が
+難しい。そのための堅牢、保守不要の波面センサーシステム検討は大切であろう。
+
+\section{Perspective of Future Development}
+
+GLAOシステムは主として可変副鏡、カセグレンフランジの波面センサー、レーザー
+射出系、観測装置という構成からなる。このコンポーネントは他のAOシステムに
+とっても重要な構成要素である。
+
+可変副鏡の素子数は1000程度となる見込みである。そのため、明るい自然ガイド星用の
+波面センサーを観測装置側に用意すると、カセグレン、ナスミスのいずれの焦点にも
+Extreme AO装置ができる。もちろん、現存あるいは計画中の高コントラスト観測装置にも
+応用ができるであろう。可変副鏡は中間赤外線の装置の背景光を押さえる利点ともなる。
+
+また、複数レーザー射出系はMOAOに利用でき、可変副鏡はMOAOのwooferとして使用し、
+観測装置側にMOAOのtweeter可変形鏡をもたせることで、効率の良い装置が考案できるであろう。
+
+このようにGLAOシステムは望遠鏡機能のポテンシャルの底上げをするものである。
+
+%\end{document}

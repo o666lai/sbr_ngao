@@ -1,0 +1,132 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NGAOワークショップ報告書                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[10pt]{jarticle}
+%\usepackage{graphicx}
+
+%\oddsidemargin   -0.25cm
+%\evensidemargin  -0.25cm
+%\topmargin       -0.25cm
+%\textwidth        16.5cm
+%\textheight       24.0cm
+%\parindent        10pt
+
+%%%%% OYA's personal new commands %%%%%
+\newcommand %%%% \protect is necessary for captions %%%%%
+{\supstar}{\!\!\mbox{\protect\raisebox{1.5ex}{$\star$}}}
+\newcommand{\gtrsim}{\ ^{\displaystyle >}_{\displaystyle \sim}\ }
+\newcommand{\lesssim}{\ ^{\displaystyle <}_{\displaystyle \sim}\ }
+\newcommand{\adeg}{\hbox{$\,^{\circ}$}}
+\newcommand{\arcs}{\hbox{$\,^{\prime\prime}$}}
+\newcommand{\arcm}{\hbox{$\,^{\prime}$}}
+
+\def\thisdir{simulation/glao/}
+
+%\begin{document}
+
+\chapter{Next-Generation AO Simulation Study
+\label{chap:simulation}}
+
+本章ではすばる望遠鏡次世代広視野補償光学系のための
+シミュレーションに基づく検討結果をまとめる。
+補償光学装置(AO: Adaptive Optics)の視野を広げるためには、
+大気ゆらぎの3次元構造を考慮する必要があり、この技術をトモグラフィーと呼ぶ。
+トモグラフィー技術を観測目的に応じて実装するこになるが、その方式には複数
+ある(\ref{sec:various_ao_systems}節参照)。
+その中で
+地表層補償光学系(GLAO: Ground-Layer Adaptive Optics)と
+多天体補償光学系(MOAO: Multi-Object Adaptive Optics)
+に対してシミュレーションによる検討を行った。
+
+すばる望遠鏡に次世代広視野AOを用いた赤外線観測装置が
+活躍し始める頃には、口径30m望遠鏡も始動すると期待される。
+すばる望遠鏡の将来計画を考える上では、
+目指すサイエンスとそれを実現する技術という両面において
+30m望遠鏡との相補性あるいは30m望遠鏡への発展を意識せざるをえない。
+GLAOとMOAOという2つの広視野AOの方式もこの様な背景を踏まえて
+シミュレーションによる検討を進める候補として選択した。
+%
+GLAOは視野直径10分以上という
+広視AOの中でも最大の視野を達成できる方式である。
+補正性能は回折限界ではなくシーイングの改善であるが、
+この視野を活かすことで30m望遠鏡と相補的な科学的研究成果が期待できる。
+特にマウナ・ケアは大気ゆらぎ全体の中で地表層が占める割合が大きいことが
+知られておりGLAOに適したサイトであると言える。
+%
+MOAOは広い視野に亘って同時に複数の天体を観測することで観測効率を
+上げることができる方式である。各天体には回折限界の空間分解能が期待でき、
+面分光との相性も良い。
+MOAOの実現には新しい技術開発が必要である。
+暗い観測天体から離れた方向にある十分明るい複数の波面参照星(ガイド星)から、
+観測天体方向の波面を推定するトモグラフィー技術、推定された波面を
+波面センサ(WFS)が見ていない方向の可変形鏡(DM)で補正するオープンループ制御技術
+等が挙げられる。
+すばる望遠鏡において技術的、科学的経験を蓄積していくことで
+30m望遠鏡の次期観測装置に発展させることが期待される。
+
+ここでのシミュレーションは広視野化検討のためであるので、
+いずれの方式に対しても視野をどこまで広く確保できるかが
+最も重要な確認すべき点になる。
+%
+GLAOの場合は補正性能がシーイングに近いので、回折限界を扱う一般的なAOとは
+状況が異なりシーイングの影響も大きい。
+このような領域でシミュレーション結果が正しいか、
+またシーイングモデルをどう定義するかに注意が必要である。
+%
+MOAOの場合は、個別天体に対する高ストレール比が魅力であるので
+回折限界の性能を維持できる視野がどの程度か、またそのために必要となる
+tip/tiltガイド星(低次ガイド星)の数等の条件が着目すべき点である。
+%
+これらの項目をシミュレーションによって確認してそれぞれの方式の概要を把握した
+上で、検出感度やスカイカバレージなどのさらに詳細な検討へと発展させていくこと
+になる。
+
+Sec.\ref{sec:gal_sim_imaging}とSec.\ref{sec:spec_simulation}では、
+GLAOシステムでの遠方銀河観測がどのようなものになるか、ナチュラルシーイン
+グでの観測や回折限界が達成された場合と比較して検討する。
+Sec.\ref{sec:gal_sim_imaging}では撮像観測について、
+Sec.\ref{sec:spec_simulation}では分光観測についてまとめる。
+
+
+
+\clearpage
+\begin{center}
+
+\noindent
+\Large
+%%発表内容のタイトル（当日使ったものと同一である必要はありません）
+\section{Simulations of Subaru Next-Gen AO System: GLAO
+\label{sec:glao_simulation}}
+\vspace{0.5cm}
+
+\noindent
+\large
+%%著者
+{\bf Shin Oya$^1$}\\
+$^1$ Subaru Telescope, 650 North Aohoku Place, Hilo, HI 96720, USA\\
+\vspace{0.5cm}
+
+\noindent
+\normalsize
+{\bf Abstract}
+\end{center}
+\vspace{-0.2cm}
+
+\noindent
+%abstract goes here...
+ここでは広視野補償光学系の中でも10分角を超える最も広い視野を確保できる
+地表層補償光学装置(GLAO: Ground-Layer AO)の検討結果に関して記述する。
+この方式は上層の大気ゆらぎを補正しないため、回折限界の性能を得ること
+ではなく広い視野にわたってシーイングを改善することを目的としている。
+GLAOの実現方法としては可変副鏡を導入する方向で検討を進めている。
+可変副鏡はGLAO以外にも狭視野の天体に対して高いストレールを達成する
+ことができるので、十分明るい単一星に対する自然ガイド星(NGS)観測、
+コーン効果を低減するための複数レーザーガイド星(LGS)トモグラフィ観測
+も合わせ検討するべきだと考えている。
+シミュレーション・コードはTMTのNFIRAOSのために開発されたMAOSを使用した。
+
+
+
+%%本文開始（章立ては自由）
+
+%%% 20130311 ommited by Iwata

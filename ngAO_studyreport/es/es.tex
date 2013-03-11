@@ -1,7 +1,7 @@
 \chapter{Executive Summary
 \label{chap:exec_summary}}
 
-\section{$BGX7J(B: $B$9$P$kK>1s6@>-MhAuCV7W2h$N8!F$(B}
+\section{Background: Subaru Telescope Future Instrument Plans}
 
 $B$9$P$kK>1s6@$O(B1999$BG/$N%U%!!<%9%H%i%$%H!"(B2000$BG/$N6&F1MxMQ3+;O0JMhMM!9$JE7(B
 $BJ83X$NNN0h$K$*$$$F=>Mh$NCN8+$rBg$-$/99?7$9$kM%$l$?@.2L$r5s$2$F$-$?!#(B
@@ -83,43 +83,51 @@ We made numerical simulations to evaluate performance of these systems
 with Subaru Telescope. The details are described in 
 Chapter~\ref{chap:simulation}.
 
-\subsection{$BCOI=AXJd=~8w3X7O(B(GLAO)}
+\subsection{Ground Layer AO (GLAO)}
 
-$B2DJQI{6@$rMQ$$$?(BGLAO$B$N%7%_%e%l!<%7%g%s$K$D$$$F(B
-Section~\ref{sec:glao_simulation}$B$K$F5-=R$7$F$$$k!#(B
-$B<g$J8!F$7k2L$O0J2<$NDL$j$G$"$k(B:
+Our major findings from simulations for GLAO are as follows. 
+Please refer Section~\ref{sec:glao_simulation} for details.
 
 \begin{itemize}
  \setlength{\itemsep}{-3pt}
- \item $BE57?E*$J%7!<%$%s%0>r7o2<(B($K$-band$B$G(BFWHM$\sim 0.4''$)$B$G$O!"(BGLAO$B$K(B
-       $B$h$C$F(B$K$-band$B$G(BFWHM$0.2''$$B$,C#@.$5$l$k(B
- \item $BE@8;$KBP$9$k(BEnsquared Energy$B$O(B1.5--2$BG\DxEY$N%2%$%s$,$"$k(B
- \item $B;kLnD>7B(B$20'$$B$K$o$?$C$F!"$[$\0lMM$JJd@5@-G=$,C#@.$5$l$k!#;kLn$OK>(B
-       $B1s6@$*$h$S4QB,AuCV$N5!3#E*!&8w3XE*@)Ls$+$i7h$a$i$l$k$3$H$K$J$k(B
- \item Tip-Tilt$B%,%$%I@1$NL@$k$5(B18$BEy(B($B8=9T$N(BAO188$B$N8B3&Ey5i(B)$B$^$GBg$-$J@-G=(B
-       $B$NNt2=$O$J$$!#$9$J$o$A!"(BSky Coverage$B$O8=9T$N(BAO188/LGS$B$HF1DxEY$H4|(B
-       $BBT$5$l$k(B
+ \item Under a typical natural seeing condition (FWHM$\sim 0.4''$ in
+       $K$-band), GLAO will be able to provide FWHM $\sim 0.2''$ in
+       $K$-band. 
+ \item Factor 1.5--2 gains are expected on ensquared energy for point
+       sources, compared to observations under natural seeing.
+ \item Approximately uniform wavefront correction over FoV diameter
+       $\sim 20'$ will be achieved. Thus performance of GLAO would not
+       be a primary factor in determining the FoV of the system;
+       mechanical and optical limitations from the telescope and
+       instruments would restrict available FoV.
+ \item No significant performance degradation is expected with Tip-Tilt
+       guide stars (TTGS) as faint as 18 mag., which is the limiting magnitude
+       of the present AO188. Thus it is expected that the sky coverage
+       of GLAO would be similar to that of AO188/LGS.
 \end{itemize}
 
-$B%^%&%J%1%"$G$O%7!<%$%s%0$K@j$a$kCOI=AX$N3d9g$,9b$$$H9M$($i$l$F$$$k$3$H$b(B
-$B$"$j!"%7%_%e%l!<%7%g%s$G$O$9$P$kK>1s6@$G$N(BGLAO$B$OM%$l$?@-G=$rH/4x$G$-$k$H(B
-$B4|BT$5$l$k$3$H$,J,$+$C$?!#$^$?!"2DJQI{6@$K$h$kL@$k$$E7BN$N%*%s%=!<%9Jd@5(B
-$B$O!"(BAO188$B$HHf$Y$F$b9b$$Jd@5@-G=$,4|BT$5$l$k$3$H$bL@$i$+$K$J$C$?!#(B
+Since the fraction of the ground layer among atmospheric turbulence
+components is thought to be relatively high in Mauna Kea, Subaru GLAO
+could provide good performances. Additionally, we found that on-source
+wavefront correction with the adaptive secondary mirror can be higher
+than that achieved with the AO188.
 
 
-\subsection{$BB?E7BNJd=~8w3X7O(B(MOAO)}
+\subsection{Multi-Object AO (MOAO)}
 
-MOAO$B$N%7%_%e%l!<%7%g%s$K$D$$$F(B
-Section~\ref{sec:moao_simulation}$B$K$F5-=R$7$F$$$k!#(B
-$B<g$J8!F$7k2L$O0J2<$NDL$j$G$"$k(B:
+Details of simulations for MOAO are described in
+Section~\ref{sec:moao_simulation}. Our major findings are as follows:
 
 \begin{itemize}
  \setlength{\itemsep}{-3pt}
- \item 6$B8D$N%l!<%6!<%,%$%I@1$rMQ$$$k>l9g!"H>7B(B$3'$$BDxEY$N%?!<%2%C%HNN0h$N(B
-       $BCf$GE7BN$rA*Br$9$l$P(BGLAO$B$h$j$b9b$$Jd=~@-G=$,H/4x$G$-$k(B
- \item $B9b$$@-G=$rC#@.$9$k$?$a$K$O(BTip-Tilt$BJd@5$N$?$a$N<+A3%,%$%I@1$b==J,(B
-       $B>.$5$$4V3V$GB8:_$9$kI,MW$,$"$k$?$a!"(BSky Coverage$B$O>.$5$$2DG=@-$,(B
-       $B$"$k(B
+ \item If we use 6 GLSs, wavefront correction better than that of GLAO
+       system will be achieved for those within a patrol area of a
+       radius smaller than $\sim 3'$.
+
+ \item In order to achieve good wavefront error corrections, TTGS should
+       be reasonablly close to the target. Thus the sky coverage to be
+       achieved with MOAO might be fairly similar tto the FoV of the
+       current AO188.
 \end{itemize}
 
 \medskip
@@ -145,7 +153,7 @@ MOAO$B$O!"J#?t$NE7BN$KBP$7$F9b$$Jd=~@-G=$r<B8=$G$-$k5;=Q$G$"$k$,!"(B
 $BLn$GC#@.$5$l$k!#(B}}
 
 
-\section{$B6a@V30@~?7AuCV(B}
+\section{New Near-Infrared Instrument}
 
 GLAO$B$G$O;kLnD>7B(B$20'$$B$^$G0lMM$JJd@5@-G=$,F@$i$l$k8+DL$7$G$"$k!#8=:_$9$P(B
 $B$kK>1s6@$G3hLv$9$k6a@V30@~;#A|!&B?E7BNJ,8wAuCV$G$"$k(BMOIRCS$B$N;kLn$O(B
@@ -183,9 +191,10 @@ $16'$$B$^$G9b$$7kA|@-G=$r;}$C$?8w3X7O$,2DG=$G$"$k$3$H$,J,$+$C$?!#(B
 $B$$FCD'E*$JAuCV0F$G$"$k!#(B}}
 
 
-\section{$B9-;kLn(BAO+$B?7AuCV$K$h$k%5%$%(%s%9(B}
+\section{Science with Wide-Field AO and New Instrument}
 
-\subsection{$B6d2O7A@.!&?J2=8&5f(B: $B6a@V30@~Bg5,LO%5!<%Y%$$GL@$i$+$K$9$k6d2O;K$NA4KF(B}
+\subsection{Complete Sensus of the Galaxy Evolution with Large-Scale
+  Near-IR Surveys}
 
 $B$9$P$kK>1s6@$r$O$8$a$H$9$k(B8--10m$B5iK>1s6@$d(B4m$B5i%5!<%Y%$K>1s6@!"(BHST$B$r;O$a(B
 $B$H$9$k1'ChK>1s6@$J$I$N3hLv$K$h$C$F!"1'Ch$,8=:_$N(B1/10$B$NG/Np$K$bK~$?$J$$;~(B
@@ -240,7 +249,8 @@ $z\sim1-3$$B$N6d2O$NBg5,LO$J(B($BLL(B)$BJ,8w%5!<%Y%$%W%m%0%i%`$r<B;\$9$k$3$
 $B$H$7$F!"@$3&$KM#0l$NHs>o$K6/NO$J@.2L$H$J$j$&$k$G$"$m$&!#(B
 
 
-\subsection{$B69BS0h;#A|(B}
+\subsection{Discovery of the Most Distant Galaxies and Understanding the
+  Cosmic Reionization with Narrow-band Imagign Surveys}
 
 $B69BS0h%U%#%k%?$K$h$k;#A|$K$h$C$F!"FCDj$N@VJ}JP0\$N51@~$rC5::$9$k$3$H$,$G$-$k!#(B
 $BCO5eBg5$$N(BOH$BLk8w$H$N=E$J$j$,>/$J$$GHD90h$rA@$($P!"FC$K?<$$4QB,$,2DG=(B
@@ -255,7 +265,7 @@ Lyman $\alpha$$B51@~6d2O$rC5::$9$k>l9g$K4|BT$5$l$k8!=P?t$r5DO@$7$F$$$k!#(B
 $B:n!"AuCe$G$-$k$N$bCO>eK>1s6@$J$i$G$O$NMxE@$G$"$k$H8@$($k!#(B
 
 
-\subsection{$B9-;kLn6a@V30@~AuCV(B+GLAO$B$K$h$k6d2O7OCf?4J}8~$N4QB,(B}
+\subsection{Observing the Galactic Center}
 
 $B9-;kLn6a@V30@~AuCV(B+GLAO$B$G3JCJ$N?JE8$,4|BT$5$l$k%5%$%(%s%9%1!<%9$N0l$D$H(B
 $B$7$F!"6d2O7OCf?4J}8~$N%5%$%(%s%9$,5s$2$i$l$k!#K\8!F$Js9p=q$G$O!"6d2O9M8E(B
@@ -287,7 +297,7 @@ Nuclear Star Cluster$B$O6d2O7OCf?4$ND65pBg%V%i%C%/%[!<%k$H6d2O7O%P%k%8$H$N(B
 Chapter~\ref{chap:science}$B$G$NJs9p$r;2>H$7$FD:$-$?$$!#(B
 
 
-\section{TMT (Thirty Meter Telescope) $B$H$N%7%J%8!<(B}
+\section{Synergy with the Thirty Meter Telescope}
 
 $BK\7W2h$,<B8=$7K\3JE*$J2J3X4QB,$,3+;O$5$l$k$N$O(B2010$BG/BeKv$+$i(B2020$BG/Be=iF,(B
 $B$H9M$($i$l$k!#$3$l$O!"(BTMT$BEy$ND6Bg7?CO>eK>1s6@(B(ELT)$B$,%U%!!<%9%H%i%$%H$r7^$((B
@@ -316,11 +326,11 @@ TMT$B$K$h$k$5$i$K>\:Y$J4QB,$K6!5k$9$kE7BN%5%s%W%k$r7A@.$9$k>e$G$b!"@'Hs(B
 $B3hLv$9$k>e$G@'HsI,MW$G$"$k!#(B}}
 
 
-\section{$B3+H/7W2h(B}
+\section{Development Plan}
 
 $B3+H/7W2h$K$D$$$F$O(BChapter~\ref{chap:dev_plan}$B$K$F5-=R$7$F$$$k!#(B
 
-\subsection{$B?d?JBN@)$H7PHq(B}
+\subsection{Development Organization and Funding}
 
 $B$3$l$^$GK\7W2h$N8!F$$r?J$a$F$-$?$9$P$kK>1s6@<!@$Be(BAO$B8!F$%o!<%-%s%0%0%k!<(B
 $B%W(B(ngAOwg)$B$r3K$H$7$F!"%O%o%$4QB,=j%9%?%C%U$O$b$H$h$j!"F|K\9qFb$*$h$S3$30(B
@@ -342,7 +352,7 @@ TMT$B$N7z@_4|$KF1;~$K?J$a$k$3$H$K$J$k$3$H$r9M$($k$H!"?ME*;q8;$N3NJ]$K$b:$(B
 $BE*$K$O2J8&Hq$r3K$H$7$F!"9q:]E*$J6(F1BN@)$r3NN)$7$F3NJ]$9$k$Y$-$G$"$k$H9M(B
 $B$($F$$$k!#(B
 
-\subsection{$B%9%1%8%e!<%k(B}
+\subsection{Development Schedule}
 
 TMT$B$NK\3JE*$J1?MQ$K@hN)$C$F4QB,$r3+;O$7!"(BTMT$B$G$N8D!9$NE7BN$N$h$j>\:Y$J4Q(B
 $BB,$X$H$D$J$$$G$$$/$3$H$,=EMW$G$"$k!#$=$N$?$a!"(B2020$BG/$K$O%5%$%(%s%91?MQ$r(B

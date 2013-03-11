@@ -3,7 +3,7 @@ all: paper
 # Really clean should clean here and in subdirectories
 # Most notably it should at least clean .blg and .bbl files
 clean:
-	-rm -f *.aux *.log *.dvi *.blg *.bbl *.inx *.aut *.toc *.out subaru_ngao.pdf
+	-rm -f *.aux *.log *.dvi *.blg *.bbl *.inx *.aut *.toc *.out 
 #	-rm -f */*.aux */*.log */*.dvi */*.blg */*.bbl */*.inx */*.aut */*.toc */*.out 
 	-rm -f */*.aux */*.log */*.dvi */*.blg */*.inx */*.aut */*.toc */*.out 
 	-rm -f */*/*.aux */*/*.log */*/*.dvi */*/*.blg */*/*.bbl */*/*.inx */*/*.aut */*/*.toc */*/*.out 
@@ -33,8 +33,8 @@ subaru_ngao_SR_en.dvi: clean subaru_ngao_SR_en.tex $(BIBFILES) $(TEXFILES)
 #	bibtex science/pyo/pyo
 #	bibtex science/fukagawa/fukagawa
 #	bibtex science/chiba/chiba
-#	bibtex simulation/akiyama/akiyama
-#	bibtex simulation/oya/oya
+#	bibtex simulation/glao/oya
+#	bibtex simulation/moao/akiyama
 #	bibtex project/hayano/system_design
 	platex subaru_ngao_SR_en.tex
 	platex subaru_ngao_SR_en.tex

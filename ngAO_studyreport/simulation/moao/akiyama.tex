@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NGAOワークショップ報告書テンプレート
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% [AOと装置の仕様] 各自要求するAOや装置の仕様をテンプレートにある表に記入。
+%%
+%% [参考文献] 必ず明記すること。図の引用元も明記すること。
+%%
+%% [分量] 基調講演(20分以上)は4ページ以上、一般講演(15分)は2ページ以上。
+%%
+%% [締切] 原稿締め切り 2012年1月末
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[10pt]{jarticle}
+%\usepackage{graphicx}
+
+%\oddsidemargin   -0.25cm
+%\evensidemargin  -0.25cm
+%\topmargin       -0.25cm
+%\textwidth        16.5cm
+%\textheight       24.0cm
+%\parindent        10pt
+
+%\def\gsim{\mathrel{\raise0.35ex\hbox{$\scriptstyle >$}\kern-0.6em % Greater/squiggles
+%\lower0.40ex\hbox{{$\scriptstyle \sim$}}}}
+%\def\lsim{\mathrel{\raise0.35ex\hbox{$\scriptstyle <$}\kern-0.6em % Less than/squiggles 
+%\lower0.40ex\hbox{{$\scriptstyle \sim$}}}}
+
+%\begin{document}
+
+\def\thisdir{simulation/moao/}
+
+\begin{center}
+
+\noindent
+\Large
+\section{Simulations of Subaru Next-Gen AO System: MOAO
+\label{sec:moao_simulation}}
+\vspace{0.5cm}
+
+\noindent
+\large
+%%著者（例）
+{\bf Masayuki Akiyama$^1$}\\
+$^1$ Astronomical Institute, Tohoku University, 3-6 Aramaki, Aoba-ku, Sendai, Japan
+\vspace{0.5cm}
+
+\noindent
+\normalsize
+{\bf Abstract}
+\end{center}
+\vspace{-0.2cm}
+
+\noindent
+ここではすばる望遠鏡において6個のレーザーガイド星を用いて
+多天体補償光学(MOAO)を行った場合に予想される性能を検討した
+結果をまとめる。特に、MOAOを用いることで地上層補償光学(GLAO)
+よりも高い補償性能を広い領域の多天体について実現することを
+目指す。そのためGLAOよりも高い補償性能を維持しつつ、どの程度
+までターゲット領域を広げられるのかを評価することに重点を
+置く。MOAOの場合には視野の中を連続的に補正することはせず、
+特定のターゲットの方向のみの補正を行っていることに注意が
+必要である。そのため以下ではこのターゲットを選択する領域の
+ことをターゲット領域と呼ぶ。6個のレーザーガイド星を用いた
+場合、半径$3^{\prime}$程度のターゲット領域についてはGLAO
+よりも高い補償性能が期待されるが、それよりもレーザーガイド星の
+間隔を広げてターゲット領域を広げると視野のほとんどの領域
+でGLAOに近い補償性能しか得られず、MOAOのメリットが
+生かせなくなることがわかった。また自然ガイド星の間隔が開くにつれ
+て Tip-Tilt の波面誤差が急激に大きくなることもわかった。
+Tip-Tilt ガイド星に用いることのできる自然ガイド星の明るさ
+を考えると銀極方向においては複数の自然ガイド星をターゲット
+領域に用意出来る確率はかなり低く、Tip-Tilt の波面残差が
+性能をリミットする。
+
+
+%%本文開始（章立ては自由）
+
+%%% 20130311 ommitted by Iwata
