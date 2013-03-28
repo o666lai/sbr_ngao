@@ -3,59 +3,45 @@
 
 \section{Background: Subaru Telescope Future Instrument Plans}
 
-すばる望遠鏡は1999年のファーストライト、2000年の共同利用開始以来様々な天
-文学の領域において従来の知見を大きく更新する優れた成果を挙げてきた。
+Subaru Telescope Science Advisory Committee (SAC) is an association of 
+scientists in universities and institutions in Japan. As a
+representative of Japanese optical-infrared astronomical community, they 
+have made advisory comments and recommendations to Subaru Telescope,
+NAOJ.
+In the recommendation report published in March 2009, SAC listed
+desirable future instruments of Subaru Telescope. There
+are four candidates, namely,
 
-世界には8m級の望遠鏡は既に多数存在しているが、すばる望遠鏡には、
-高度な制御技術とマウナケアの良好な環境による優れた像質と、
-主焦点にとりつける広視野観測装置(Suprime-Cam, FMOS)という、
-他に類をみない特徴がある。
-また、4つの焦点に多彩な観測装置を備え、様々な観測の要求に応えられるシステムと
-なっていることも大きな特徴である。
-
-ハワイ観測所と日本の光赤外天文学コミュニティは、
-すばる望遠鏡 第一期観測装置に加え、MOIRCS、AO188、FMOSなど
-%、いくつかのPI型装置(K3D2, HiCIAO)、と
-新たな観測装置の開発、運用を行ってきた。
-なかでもAO188は高い大気ゆらぎ補正能力をもち、IRCS、HiCIAO等と組み合わせた観測で活
-躍している。またLGSの導入により観測可能な天域が広がり、特に系外銀河の観
-測が盛んに行われるようになった。
-
-今後もすばる望遠鏡が優れた成果を挙げ続けるためには、
-その特徴を活かした観測装置の開発が欠かせない。
-すばる望遠鏡の将来装置の在り方については、すばる小委員会が主導してまとめ
-た提言書
-\footnote{\href{http://www.naoj.org/Science/SACM/sacreport/SAC_teigen_2008.pdf}{http://www.naoj.org/Science/SACM/sacreport/SAC\_teigen\_2008.pdf}}(2009年3月)に以下の候補が挙げられていた:
 \begin{enumerate}
 \setlength{\itemsep}{-3pt}
-\item 超広視野可視光カメラ
-\item 広視野多天体分光器
-\item 広視野近赤外線カメラ
-\item 近赤外線面分光装置
+\item Very Wide-field optical imager (which refers Hyper Suprime-Cam),
+\item Wide-field multi-object spectrograph (which refers WFMOS that now
+      turns into Prime Focus Spectrograph), 
+\item Wide-field near-infrared (NIR) camera, and 
+\item NIR integral-field spectrograph.
 \end{enumerate}
 
-これらのうち(1)については、Hyper Suprime-Camが2012年内のファーストライトを
-目指しコミッショニングフェーズに入っている。(2)については、かつてWFMOSと
-して検討された成果をもとに、仕様を更新したPFS(Prime Focus
-Spectrograph)が、IPMUを中心とする国際協力で検討されている。一方、(3)、
-(4)はその重要性が以前からよく認識されているものの、具体的な装置計画とし
-てこれまで検討が十分に進んでこなかった。
+The third and fourth candidates are NIR instruments. Unlike Hyper
+Suprime-Cam and Prime Focus Spectrograph, there has been little activity
+on the study of such future NIR instruments for Subaru Telescope.
+In response to such recommendation from Japanese community, Subaru
+Telescope initiated internal discussions on future instrumentations. 
+During the course of such discussions, we recognized the significance of
+wide-field adaptive optics system and wide-field NIR instrument
+corresponding to such wide-field AO as a strong candidate of the Subaru
+future instrument in NIR wavelengths.
+Then we have formed the working group for the Subaru next-generation AO
+system which consists of scientists not only in Subaru Telescope but
+also some members in Japanese universities.
 
-ハワイ観測所では、このすばる小委員会の提言に呼応する形で、将来装置の検討を進
-めてきた。その中で、広視野の補償光学(Adaptive Optics; AO)装置と
-それに対応する広視野近赤外線装置が有力な候補の一つとして認識された。
-そこで、このような新装置の実現性をより具体的に検討するため、
-観測所外のメンバーにも加わって頂き、すばる望遠鏡次世代AO検討ワー
-キンググループ(以下 ngAOwg)を2011年1月に組織して、
-技術検討、サイエンス検討を開始した。
-さらにコミュニティから幅広いサイエンスへの可能性を掘り起こすため、
-2011年9月に、大阪大学においてすばる望遠鏡次世代AOワークショップ
-\footnote{ワークショップwebページは
-\href{http://www.naoj.org/Projects/newdev/ws11b/index.html}{http://www.naoj.org/Projects/newdev/ws11b/}}
-を開催し、広視野AO%(特にGLAOとMOAO)
-で可能になるサイエンスについて発表、議論を行った。
+We had the first science workshop for Subaru next-generation AO in
+September 2011 in Osaka, and based on science case discussions made
+there and technical studies such as AO simulations and conceptual study
+of optical design of NIR instrument, we published the study report in
+August 2012 (in Japanese). 
 
-本検討報告書は、このワーキンググループでの検討と、サイエンスワークショップでの発表(その後の検討も含む)をまとめたものである。
+This document is an English translation of the executive summary section
+of the study report.
 
 \medskip
 
@@ -155,40 +141,59 @@ $>10'$ field of view, under a typical seeing condition.}}
 
 \section{New Near-Infrared Instrument}
 
-GLAOでは視野直径$20'$まで一様な補正性能が得られる見通しである。現在すば
-る望遠鏡で活躍する近赤外線撮像・多天体分光装置であるMOIRCSの視野は
-$4' \times 7'$であり、GLAOの能力を活かしきるためには、新たな広視野観測装
-置の開発が欠かせない。しかし、近赤外線観測装置は特殊な光学素子、冷却の必
-要、検出器の価格などのため、可視光装置より格段に広視野化が困難である。
-ngAOwgでは、すばる望遠鏡カセグレン焦点に搭載する近赤外線装置としてどの程
-度まで広視野化が可能かを探るため、まず光学系の検討を行った
-(Section~\ref{sec:inst_optics})。
-その結果、既存の副鏡と同じパラメータを使用した場合で直径約$13'$、
-望遠鏡の光学系パラメータを変更し更なる広視野化を図った場合には直径約
-$16'$まで高い結像性能を持った光学系が可能であることが分かった。
-8m級望遠鏡にこのような広い視野をもつ近赤外線装置はほかには存在しない
-うえ、GLAOによる像質の改善が達成できれば、非常に強力な装置となるであろう。
+With GLAO we expecte almost uniform seeing improvement for FoV out to
+$\sim 20'$. MOIRCS, the current near-IR imaging and multi-object
+spectrograph for Subaru Telescope, has FoV of $4' \times 7'$. In order
+to fully utilize the capability of GLAO, we definitely need to develop
+new wide-field instruments. There are much more challenges in designing 
+wide-field near-IR instrument comparared to designing instruments for
+optical wavelength; fragile optical components with high throughput in
+near-IR, need of cooling to suppress thermal emission, expensive
+detectors, and so on. We started optical design studies of the new
+wide-field near-IR instrument for the Cassegrain focus of Subaru
+Telescope (Section~\ref{sec:inst_optics}).
 
-さらに、サイエンス検討からは、面分光機能の重要性が指摘されている。
-ひろがった天体の内部構造を分解して分光する面分光機能は、特に銀河進化研究
-において重要な観測手法になっている。現在他の望遠鏡の
-装置(VLT/SINFONI, Keck/OSIRIS, Gemini/NIFS)で行われているAOと組み合わせ
-た面分光観測に比べると、GLAOによる像質改善で達成される空間分解能は落ちる
-が、広い視野の中の多数の天体に対して面分光観測を行う機能が実現できれば、
-類をみない極めてユニークな観測装置となる。
+We found that there is a possible design with a $13'$ diamter FoV for
+the case with the same optical design parameters of the secondary
+mirror as those of the current infrared secondary mirror. It was also 
+found that if we chage the optical parameters of the primary and 
+seconday mirrors, we will be able to achieve a $\sim 16'$ diameter
+FoV.
+There is no such wide-field near-IR instrument than the systems
+consiedred here. With the seeing improvement achieved by GLAO, the
+instrument should be very unique and competitive.
 
-なお、GLAOは0.6$\mu$mより長い可視域でも補正性能をもつため、可視域でGLAO
-を活かした装置も検討に値する。また、従来のAOよりも光学系点数が減少するこ
-とで背景光が抑制できると期待されるので、$>2\mu$mの熱的赤外線の観測にも有
-効である。
+Although the current optical design is for imager and multi-object
+spectrograph (using slit masks), 
+from the science case discussions it has been pointed out that the 
+Integral-Field Spectroscopy (IFS) is a key function. IFS will enable us
+to resolve internal structures of extended objects, and it has become an
+indispensable observing method for studying the galaxy evolution.
+There are some IFS instruments which can be used with the assistance of
+AO, such as VLT/SINFONI, Keck/OSIRIS, and Gemini/NIFS.
+The spatial resolution achieved by GLAO should not be as high as those
+by current single-conjugate AO systems, simultaneous IFS for multiple
+objects in wide FoV can be very unique and strong capability.
+
+We also recognize that GLAO will be able to improve image quality in
+optical wavelength ($\lambda > 0.6 \mu$m). Possibilities of new
+instruments in optical wavelength would be worth to be
+explored. Moreover, the use of adaptive secondary mirror could reduce
+the number of optics compared to classical AO systems, and thus thermal
+background radiation from telescope and instruments should be
+decreased. That would benefit observations in wavelength longer than
+2$\mu$m. The adaptive secondary mirror (ASM) would also achieve very
+high on-source strehl ratio. ASM / GLAO is not a single instrument but
+can be regarded as significant telescope upgrade, and it will open up
+various unique opportunities with Subaru Telescope.
 
 \bigskip
 
 \Ovalbox{\parbox{0.95\textwidth}{
-\bf 視野直径$13'$--$16'$を実現する光学系設計が得られ
-た。GLAO+広視野近赤外線装置により、従来の観測を超えた高い品質の広
-視野データがもたらされる。特に、多天体面分光+GLAOの装置は世界で類をみな
-い特徴的な装置案である。}}
+\bf We have found an optical design of the Cassegrain instrument with
+field-of-view of $13'$--$16'$. The GLAO-assisted wide-field NIR
+instrument should have exciting capabilities over existing instruments.
+}}
 
 
 \section{Science with Wide-Field AO and New Instrument}
@@ -196,166 +201,168 @@ $16'$まで高い結像性能を持った光学系が可能であることが分かった。
 \subsection{Complete Sensus of the Galaxy Evolution with Large-Scale
   Near-IR Surveys}
 
-すばる望遠鏡をはじめとする8--10m級望遠鏡や4m級サーベイ望遠鏡、HSTを始め
-とする宇宙望遠鏡などの活躍によって、宇宙が現在の1/10の年齢にも満たない時
-代から現在に至るまでの銀河の観測が進められ、宇宙における大局的な銀河形成
-の歴史が明らかになってきた。宇宙年齢約20-50億年($z\sim1-3$)
-の時代に宇宙全体としての、あるいは個々の銀河の平均的な星形成量はピークに
-達し(銀河の「激進化」時代)、その後ゆるやかに星形
-成活動は減退してきた。この間に個々の銀河の恒星質量は増え続け、同時に楕円
-銀河、渦巻き銀河といった現在の宇宙にみられる銀河の形態が発現してきた。
-また、同時に銀河中心部の超巨大ブラックホールも、より大きいスケールでの星
-形成活動と密接にリンクした進化を経てきたことが明らかになりつつある。
-しかし、このような大局的な銀河形成の歴史の背後で何が星形成活動を支配し、
-銀河の形態を決定していくのか、その物理過程については未解明の部分が極めて
-多い。これは、技術的な制約としては、遠方銀河は「点」として観測できるにと
-どまり、その内部でどのような物理が働いているかを直接観測することができな
-かったことに大きな問題があった。近年の補償光学と面分光装置技術の発達によっ
-て、遠方銀河における内部構造を分解した観測が可能になりつつある。
+Intensive studies of distant galaxies using 8--10m class telescopes, 
+4m class survey telescopes as well as space telescopes in the past 15
+years have revealed the outline of global history of galaxy formation
+and evolution from the early stage of the universe to the present
+epoch. We now know that the cosmic star formation rate density or the
+average star formation rate for individual galaxies peaked around the
+cosmic age of 2--5 billion years ($z\sim1-3$), and since then the global
+star formation activity slowly is slowly declining. Stellar mass of
+individual galaxies has continuted to grow, and morphologies of giant
+galaxies such as spirals and ellipticals have emerged. At the same time,
+it has been strongly suggested that super massive black holes which
+reside in the center of galaxies have evolved in close connection with
+star-formation activities. 
+The big questions in the fieldd of galaxy evolution include:
+\begin{itemize}
+ \item what are the key parameters to drive the galaxy evolution among
+       various phenomena that affect star formation activities in the
+       galaxies?
+ \item what detemines morphologies of the galaxies?
+\end{itemize}
+Since distant galaxies appear to be small, many of past researches have
+been limited to observations of massive galaxies, and especially in many
+cases internal structures of such distant galaxies have been neglected. 
+Recent development of adaptive optics and sensitive integral field
+spectrographs have enabled to resolve those distant galaxies. 
 
-撮像観測では、銀河の形態の情報(サイズ、輝度プロファイルのパラメータ、非
-対称性、色分布など)を知ることができる。GLAOによる撮像観測のシミュレーショ
-ン(Sec.~\ref{sec:gal_sim_imaging})では、特に銀河の有効半径の測定について、
-従来の観測よりも暗い中小質量の銀河まで測定が可能になることが分かった。質
-量の異なる多数の銀河について、様々な時代の銀河を調べることで、星質量の蓄
-積と銀河サイズ、形態の進化のパスを描き出すことが期待できる。また、宇宙望
-遠鏡とは異なり、必要に応じた狭帯域フィルタを追加して観測できることも大き
-な強みである。対象の赤方偏移した輝線にあわせた狭帯域フィルタによって多数
-の銀河の星形成活動をマッピングする観測が期待できる。
+With {\it imaging observations}, we can obtain morphological information
+such as size, radial profiles of light sources (stars and ionized gas),
+assymetry, and color distribution. From the simulations of imaging
+observations with GLAO (Sec.~\ref{sec:gal_sim_imaging}) we found that we
+will be able to measure effective radii for less massive galaxies
+compared to seeing-limited observations. Measurements of morphological
+parameters for huge number of galaxies in various epochs and in wide 
+range of mass will enable us to clarify the evolutionary paths of
+stellar mass assembly, size, and morphology. We should also emphasize
+that we can install new narrow-band filters which are designed to
+capture important emission lines at specific redshifts to trace star
+formation activities in the multiple galaxies within the target
+field. Such addition of new filters and dispersion elements are one
+significant advantage of ground-based facilities over the space-bourne
+telescopes.
 
-分光観測では、星形成量、ダスト量、金属量、ガスの運動状態、銀河間空間への
-アウトフローの様子など、極めて豊富な情報を得ることができる。
-特に、面分光観測を行うと、空間2次元+波長方向の3次元データを効率良く取得
-できる。既に8--10m級望遠鏡で$z\lsim3$の銀河の面分光による観測が進められ
-ているが、これまでの観測は活発な星形成を行っている明るい銀河に集中してき
-た。また従来の装置では面分光観測は一度に1つの天体に対してしか行うことが
-できなかったため、サンプル数は限定されており、統計的な議論を行うに至って
-いない。大幅にサンプル数を増やすことは、望遠鏡時間のコストからみて今後も
-容易ではないと考えられる。
-そこで、上述したようなGLAOと組み合わせた超広視野近赤外線装置で、多数の天
-体に対して一度に面分光観測を行うことが可能になれば、世界に類を見ない強力
-な観測機能を持つことになる。
-新装置の視野あたり数十から百個程度の対象銀河が存在するので、multiplicity
-を上げればあげるほど効率的な観測が可能である。
-また、銀河の進化はその存在する環境に大きく依存することが知られているが、
-銀河団/原始銀河団をその周縁部まで含めて観測することで、環境効果が個々の
-銀河の進化にどのように影響を与えるかを系統的に調査することが可能になる。
-これは広い視野をもつGLAO+新装置の強みを非常によく活かす観測となるだろう。
-$z\sim1-3$の銀河の大規模な(面)分光サーベイプログラムを実施することで、は
-じめて「激進化」時代の銀河の解剖学は、統計的な議論が可能なレベルにまで到
-達できると期待される。
-
-2020年代初頭にこれを実現すれば、すばる望遠鏡が達成するレガシーサイエンス
-として、世界に唯一の非常に強力な成果となりうるであろう。
+With {\it spectroscopic observations}, abundant physical information
+such as star formation rate, amount of dust, metallicity, gas
+kinematics, and outflow from galaxies into inter-galactic space. 
+Especially, multi-IFS (or slit-scan observations using multi-slit masks)
+is an effective way to collect `data cube' (spatial information and
+spectral information). IFS studies of distant galaxies were made
+primarily for those with the most active star formation at those
+epochs, and because only one galaxy can be observed at a time, the
+number of sample galaxies are limited (several tens at most). If we
+consider the cost of telescope time, significant increase of the number
+of sample galaxies through such single-object IFS would not be
+expected. Survey using multi-IFS with a wide-field near-infrared 
+instrument assisted by GLAO can be a very unique observing capability in
+2020s. 
+It is well known that the history of galaxy evolution strongly depends
+on their environment. Systematics census of of (proto-)clusters of
+galaxies including their outskirt is a key observation to understand
+environmental effects, and GLAO + wide-field instrument is the best
+instrument for such studies. 
+The large survey of galaxies at $z\lsim 3$ with Subaru GLAO will produce
+the first statistically robust (possibily integral-field) spectroscopic
+database of distant galaxy populations.
 
 
 \subsection{Discovery of the Most Distant Galaxies and Understanding the
   Cosmic Reionization with Narrow-band Imagign Surveys}
 
-狭帯域フィルタによる撮像によって、特定の赤方偏移の輝線を探査することができる。
-地球大気のOH夜光との重なりが少ない波長域を狙えば、特に深い観測が可能
-になる。Section~\ref{sec:nbf}では、狭帯域フィルタ撮像観測で、$z>7$の
-Lyman $\alpha$輝線銀河を探査する場合に期待される検出数を議論している。
-従来のすばる望遠鏡の主焦点カメラを使った探査は、遠方宇宙の銀河の発見にお
-いて世界をリードしてきたが、既に可視光装置での探査の限界に達している。今
-後さらに遠方の銀河を見つけ、宇宙再電離過程の探究を進めるためには、広視野
-近赤外線カメラでの探査が必要である。
-このほか、H$\alpha$輝線銀河の系統的探査など、狭帯域フィルタ撮像には様々
-なアプリケーションが考えられる。対象の赤方偏移に応じて新たなフィルタを製
-作、装着できるのも地上望遠鏡ならではの利点であると言える。
+Deep observations in near-infrared are challenged by strong OH lines of
+the Earth's atmosphere. However, we can suppress background noise for
+imaging with narrow-band filters (NBF) which are designed to trace
+photons with wavelengths between such strong OH lines. In
+Section~\ref{sec:nbf} we discuss the possibility of searching Lyman
+$\alpha$ emitting galaxies at $z>7$ with NBFs.
+Researches based on the Subaru Telescope's unique capability of
+wide-field imaging using the prime focus camera have achieved
+discoveries of many of the most distant galaxies. For the redshift of
+the current most distant galaxies, however, Lyman $\alpha$ emission is
+redshifted to the very end of the wavelength coverage of the optical
+instruments. We definitely need sensitive observations in the
+near-infrared to push the frontier of the most distant galaxies
+further and to understand the process of the cosmic reionization. 
+
+Applications of NBF are not restricted to the search of distant Lyman
+$\alpha$ emitting galaxies. Various studies such as systematic survey of
+star-forming galaxies with H$\alpha$ emission should have a large
+benefit of wide-field near-infrared instrument assisted by GLAO.
 
 
 \subsection{Observing the Galactic Center}
 
-広視野近赤外線装置+GLAOで格段の進展が期待されるサイエンスケースの一つと
-して、銀河系中心方向のサイエンスが挙げられる。本検討報告書では、銀河考古
-学の観点(Sec.~\ref{sec:chiba})、およびアストロメトリの観点
-(Sec.~\ref{sec:nishiyama})からの提案が述べられている。
-
-銀河系中心方向の球状星団はハローのそれとは異なる性質をもつ可能性があり、
-かつ矮小銀河の合体を経たバルジ形成に関する情報を得られる貴重なプローブで
-ある。銀河系中心方向は星間吸収が大きく近赤外線観測が必須で、近年探査が進
-みつつあるものの、金属量、年齢、内部構造など、銀河系中心方向の球状星団の
-性質の包括的な探究には至っていない。GLAOでアシストされた広視野・好条件の
-撮像観測によって個々の球状星団の金属量、年齢等を明らかにし、かつ分光観測
-によってその空間分布を明らかにすることで、バルジの動力学、ひいては暗黒物
-質分布にも強力な知見をもたらすことが期待できる。
-
-Nuclear Star Clusterは銀河系中心の超巨大ブラックホールと銀河系バルジとの
-共進化を探る上での鍵となりうる天体である。また、銀河系中心近傍に存在する
-若い星の起源の候補である星団の残骸の探査や、Hyper-velocity starsと呼ばれ
-る1,000 km/sに近い速度で飛び回る星の起源を明らかにすることで、超巨大ブラッ
-クホールの存在を明らかにする研究などには広視野AOでのアストロメトリが適し
-ている。従来VLTやKeckで銀河系中心のアストロメトリの精力的な研究が行われ
-てきたが、超巨大ブラックホール近傍の非常に狭い領域に限られている。上記の
-研究はすばる望遠鏡での独自の展開を可能にするものである。
-
-\bigskip
-
-このように、広視野近赤外線装置(撮像、多天体分光、多天体面分光)と広視野AO
-による観測は、様々な天体現象の研究に新たな扉を開くと期待できる。詳しくは
-Chapter~\ref{chap:science}での報告を参照して頂きたい。
+\begin{itemize}
+ \item Imaging and spectroscopy of globular clusters toward the Galactic
+       center: kinematics of the Galactic bulge and dark matter
+       distribution
+ \item Nuclear star clusters as a key population to explore the
+       co-evolution of the supermassive black hole and the Galactic bulge
+ \item Wide-field astrometry of Hyper-velocity stars around the Galactic
+       center
+\end{itemize}
 
 
-\section{Synergy with the Thirty Meter Telescope}
+\section{Synergy with the Extremely Large Telescopes}
 
-本計画が実現し本格的な科学観測が開始されるのは2010年代末から2020年代初頭
-と考えられる。これは、TMT等の超大型地上望遠鏡(ELT)がファーストライトを迎え
-ると期待される時期である。ELTはその口径による集光力と空間解像力(AOにより
-シーイング限界を超えた空間解像力を得ると期待される)によって、8--10m級望
-遠鏡をはるかに超える感度を達成すると期待され、それによって従来の観測では
-見ることができなかった微弱な天体 からの信号をとらえ、天体の内部構造を詳
-らかにすることが可能になる。ELTによるこのような観測は、8--10m級望遠鏡な
-どによって得られてきた人類の宇宙に対する知見をさらに深めるために不可欠で
-ある。一方で、装置とAOへの制約から、ELTでは広い視野を確保することが容易
-ではない。8--10m級望遠鏡は、ELTが稼働する時代にあっては、ELTにできない観
-測を行い相補的な効果を挙げることが大切であり、すばる望遠鏡の可視域の新装
-置(計画)であるHSC、PFSといった広視野のカメラ、分光器は、この観点から高い
-意義をもつと言える。赤外線観測においても、
-TMTと相補的な役割を果たし得る広視野の観測装置を整備することは、
-すばる望遠鏡が2020年代以降も高い価値を有する科学上の発見を続け、かつ
-TMTによるさらに詳細な観測に供給する天体サンプルを形成する上でも、是非
-とも必要なものである。
+We aim at operation of Subaru GLAO around the end of 2010s and early
+2020s. That is the epoch when Extremely Large Telescopes (ELTs) such as
+the Thirty Meter Telescope are expected to start their first-light
+observations. ELTs will have light collecting power and spatial
+resolution substantially superior to the current 8--10m class
+telescopes. Observations with ELTs will enable us to explore much
+fainter targets, and investigate very details of internal structure of
+various objects. On the other hand, wide-field (i.e., FoV larger than
+$\gsim10'$) observation with ELTs are extremely challenging. Wide-field
+capability of Subaru Telescope has been extended by the telescope
+modification and installation of the new prime-focus camera Hyper
+Suprime-Cam (1.5 deg. diameter), and the massive fiber-fed spectrograph 
+Prime Focus Spectrograph (PFS)\footnote{The spectral coverage of PFS is
+0.38$\mu$m -- 1.3$\mu$m.} is under development.
+To implement observational capability which cannot be achieved by ELTs
+and to execute observations complimentary to those by ELTs should be key
+strategies for 8--10m class telescope in 2020s and later. 
+A combination of Subaru GLAO and wide-field near-IR instruments is one
+of the most significant projects which further develop the uniqueness
+and advantage of Subaru Telescope and feed astronomical targets to ELTs
+for detailed characterizations.
 
 \bigskip
 
 \Ovalbox{\parbox{0.95\textwidth}{
-\bf TMT時代における すばる望遠鏡の役割として、広視野装置によるサー
-ベイ観測は大きな柱である。近赤外線領域での広視野装置の整備は、TMTとの連
-携・相補性という観点からも高い意義があり、すばる望遠鏡が2020年代以降も
-活躍する上で是非必要である。}}
+\bf Wide-field instruments for survey are key instruments in the era of
+TMT and other ELTs. Subaru Telescope should work in cooperation with TMT
+and be complimentary to the TMT's capabilities. The Development of a
+wide-field near-infrared instrument is essentially important for Subaru
+Telescope.}}
 
 
 \section{Development Plan}
 
-開発計画についてはChapter~\ref{chap:dev_plan}にて記述している。
+%開発計画についてはChapter~\ref{chap:dev_plan}にて記述している。
 
 \subsection{Development Organization and Funding}
 
-これまで本計画の検討を進めてきたすばる望遠鏡次世代AO検討ワーキンググルー
-プ(ngAOwg)を核として、ハワイ観測所スタッフはもとより、日本国内および海外
-の研究者、組織と協同して推進する考えである。
-
-観測装置は大型化、複雑化しており、開発にかかる予算、期間も増大している。
-TMTの建設期に同時に進めることになることを考えると、人的資源の確保にも困
-難が予想される。本計画の推進にあたっては、日本国内の光赤外天文学コ
-ミュニティにおいて、TMT時代におけるすばる望遠鏡のあり方についてのコンセ
-ンサスを形成し、すばる望遠鏡が2020年代以降に果たす役割、そのために必要な
-開発を明確に定義して、その中に位置づけることが大切である。
-
-本計画を進めるためには、国内、国外の機関との共同は必須であると考えられる。
-従来すばる望遠鏡は多くの観測装置を擁して多様な科学的要請に応え優れた成果
-を挙げてきたが、今後はコストの削減のために装置の数を絞り込み効率的な運用
-を目指すことは避けられないであろう。一方すばる望遠鏡と同じマウナケアにあ
-るGemini望遠鏡では、GLAOの検討を我々よりも数年先行して進めてきており、既
-に協力について話し合いを始めている。開発予算については、競争的資金、具体
-的には科研費を核として、国際的な協同体制を確立して確保するべきであると考
-えている。
+\begin{itemize}
+ \item Core group: next-generation AO study working group (Subaru
+       Telescope AO team + scientists in Subaru and universities in
+       Japan)
+ \item Subaru Telescope staff + NAOJ (Mitaka) staff + international
+       partnership
+ \item Fund-raising from external competitive grants from the Japanese 
+       government 
+ \item NAOJ budget for Subaru Telescope modifications should be
+       considered. 
+ \item International partnerships are essentially important for both
+       human resources and fudning.
+\end{itemize}
 
 \subsection{Development Schedule}
 
-TMTの本格的な運用に先立って観測を開始し、TMTでの個々の天体のより詳細な観
-測へとつないでいくことが重要である。そのため、2020年にはサイエンス運用を
-開始したい。これは、推進体制を確立することで実現可能なタイムスケールであ
-る。
+In order to maximize scientific outcomes, it is important to develop
+the wide-field instrument with GLAO prior to the science observations of
+TMTs, to execute survey observations, and to construct list of target
+objects for detailed studies with TMT. We should construct a development
+plan to start science observation by 2020.
 
