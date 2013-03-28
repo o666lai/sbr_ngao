@@ -31,14 +31,15 @@ wide-field adaptive optics system and wide-field NIR instrument
 corresponding to such wide-field AO as a strong candidate of the Subaru
 future instrument in NIR wavelengths.
 Then we have formed the working group for the Subaru next-generation AO
-system which consists of scientists not only in Subaru Telescope but
-also some members in Japanese universities.
+system which consists of not only scientists in Subaru Telescope but
+also some members in Japanese universities, and started conceptual study
+of the next-generation AO system.
 
 We had the first science workshop for Subaru next-generation AO in
 September 2011 in Osaka, and based on science case discussions made
-there and technical studies such as AO simulations and conceptual study
-of optical design of NIR instrument, we published the study report in
-August 2012 (in Japanese). 
+there and thereafter and technical studies such as AO simulations and
+conceptual study of optical design of NIR instrument, we published the
+study report in August 2012 (in Japanese). 
 
 This document is an English translation of the executive summary section
 of the study report.
@@ -49,61 +50,61 @@ of the study report.
 \section{Subaru Telescope Next-Gen AO System}
 
 There are some different ways to implement Wide-Field AO, and each of
-them has its own characteristics (see
-Section~\ref{sec:various_ao_systems}). Among them the working group
+them has its own characteristics. 
+%(see Section~\ref{sec:various_ao_systems}). 
+Among them the working group
 investigated extensively on two kinds of AO, namely,
 {\bf Ground-Layer AO (GLAO)}, and {\bf Multi-Object AO (MOAO)}.
 
 GLAO will achieve seeing improvement over the entire $\phi \gsim 10'$ field
-of view (FoV) by correcting only for the disruption of images caused by the
-ground layor of the Earth's atmosphere. Although the Strehl ratio with
-GLAO should be much less than those by AO systems which achieve
-diffraction limited images, you can achieve much wider FoV comparared to
-the existing AO systems.
+of view (FoV) by correcting only for the disruption of wavefront caused
+by the ground layer of the Earth's atmosphere. Although the Strehl ratio
+achievable with GLAO should be much less than those by AO systems which
+provide diffraction limited images, GLAO can correct images over much
+wider FoV compared to the existing AO systems.
 
 On the other hand, in MOAO, the wavefront errors not over the entire FoV
 but toward multiple specific objects within a patrol area are
 corrected. 
 
 We made numerical simulations to evaluate performance of these systems
-with Subaru Telescope. The details are described in 
-Chapter~\ref{chap:simulation}.
+with Subaru Telescope. 
+% The details are described in Chapter~\ref{chap:simulation}.
 
 \subsection{Ground Layer AO (GLAO)}
 
 Our major findings from simulations for GLAO are as follows. 
-Please refer Section~\ref{sec:glao_simulation} for details.
-
+%Please refer Section~\ref{sec:glao_simulation} for details.
 \begin{itemize}
  \setlength{\itemsep}{-3pt}
  \item Under a typical natural seeing condition (FWHM$\sim 0.4''$ in
        $K$-band), GLAO will be able to provide FWHM $\sim 0.2''$ in
        $K$-band. 
- \item Factor 1.5--2 gains are expected on ensquared energy for point
+ \item Factor of 1.5--2 gains are expected on ensquared energy for point 
        sources, compared to observations under natural seeing.
  \item Approximately uniform wavefront correction over FoV diameter
        $\sim 20'$ will be achieved. Thus performance of GLAO would not
        be a primary factor in determining the FoV of the system;
-       mechanical and optical limitations from the telescope and
-       instruments would restrict available FoV.
+       mechanical and optical limitations from the telescope structure
+       and instruments would restrict available FoV.
  \item No significant performance degradation is expected with Tip-Tilt
-       guide stars (TTGS) as faint as 18 mag., which is the limiting magnitude
-       of the present AO188. Thus it is expected that the sky coverage
-       of GLAO would be similar to that of AO188/LGS.
+       guide stars (TTGS) as faint as 18 mag., which is the limiting
+       magnitude of the present AO188. Thus it is expected that the sky
+       coverage of GLAO would be similar to that of AO188/LGS.
 \end{itemize}
 
 Since the fraction of the ground layer among atmospheric turbulence
 components is thought to be relatively high in Mauna Kea, Subaru GLAO
 could provide good performances. Additionally, we found that on-source
-wavefront correction with the adaptive secondary mirror can be higher
-than that achieved with the AO188.
+wavefront correction with the adaptive secondary mirror (with
+$\sim$1,000 actuators) can be higher than that achieved with the AO188. 
 
 
 \subsection{Multi-Object AO (MOAO)}
 
-Details of simulations for MOAO are described in
-Section~\ref{sec:moao_simulation}. Our major findings are as follows:
-
+%Details of simulations for MOAO are described in 
+%Section~\ref{sec:moao_simulation}. 
+Our major findings with simulations for MOAO are as follows:
 \begin{itemize}
  \setlength{\itemsep}{-3pt}
  \item If we use 6 GLSs, wavefront correction better than that of GLAO
@@ -111,23 +112,24 @@ Section~\ref{sec:moao_simulation}. Our major findings are as follows:
        radius smaller than $\sim 3'$.
 
  \item In order to achieve good wavefront error corrections, TTGS should
-       be reasonablly close to the target. Consequently, the sky
+       be reasonably close to the target. Consequently, the sky
        coverage to be achieved with MOAO might be fairly similar to the
-       FoV of the current AO188.
+       FoV of the current AO188 ($2'-3'$).
 \end{itemize}
 
-\medskip
+%\medskip
 
 Through these studies we have understood expected performances of GLAO 
 and MOAO with the Subaru Telescope in reasonably realistic observing
 conditions. MOAO will achieve high Strehl ratios for multiple targets,
-but for the case with 8m-class telescopes their sky area where MOAO can
-perform well will be limited; MOAO should be a strong system if it is
-implemented for 30m-class telescopes.
-GLAO can, on the other hand, provide seeing-improved wide-field images
-which would not be easilly achieved with 30m-class telescopes. It has 
-stronger synergy with 30m-class telescopes. We concluded that GLAO
-is the primary candidate for the Subaru next-generation AO.
+but for the case with 8m-class telescopes, their sky area where MOAO can 
+perform well will be limited; MOAO should be a strong system for
+30m-class telescopes.
+On the other hand, GLAO can provide seeing-improved wide-field images
+which would not be easily achieved with 30m-class telescopes. Such
+capability is greatly complimentary to 30m-class telescopes. We
+concluded that GLAO is the primary candidate for the Subaru
+next-generation AO. 
 
 \bigskip
 
@@ -141,47 +143,50 @@ $>10'$ field of view, under a typical seeing condition.}}
 
 \section{New Near-Infrared Instrument}
 
-With GLAO we expecte almost uniform seeing improvement for FoV out to
-$\sim 20'$. MOIRCS, the current near-IR imaging and multi-object
+With GLAO we expect almost uniform seeing improvement for FoV out to
+$\sim 20'$. MOIRCS, the current NIR imaging and multi-object
 spectrograph for Subaru Telescope, has FoV of $4' \times 7'$. In order
 to fully utilize the capability of GLAO, we definitely need to develop
 new wide-field instruments. There are much more challenges in designing 
-wide-field near-IR instrument comparared to designing instruments for
+wide-field NIR instrument compared to designing instruments for
 optical wavelength; fragile optical components with high throughput in
-near-IR, need of cooling to suppress thermal emission, expensive
+NIR, need of cooling to suppress thermal emission, expensive
 detectors, and so on. We started optical design studies of the new
-wide-field near-IR instrument for the Cassegrain focus of Subaru
-Telescope (Section~\ref{sec:inst_optics}).
+wide-field NIR instrument for the Cassegrain focus of Subaru
+Telescope to assess its feasibility. % (Section~\ref{sec:inst_optics}).
 
-We found that there is a possible design with a $13'$ diamter FoV for
+We found that there is a possible design with a $13'$ diameter FoV for
 the case with the same optical design parameters of the secondary
 mirror as those of the current infrared secondary mirror. It was also 
-found that if we chage the optical parameters of the primary and 
-seconday mirrors, we will be able to achieve a $\sim 16'$ diameter
-FoV.
-There is no such wide-field near-IR instrument than the systems
-consiedred here. With the seeing improvement achieved by GLAO, the
+found that if we change the optical parameters of the primary and 
+secondary mirrors, we will be able to achieve a $\sim 16'$ diameter
+FoV\footnote{These configurations are systems without split of the
+FoV.}.
+There is no such wide-field NIR instrument than the systems
+considered here. With the seeing improvement achieved by GLAO, this 
 instrument should be very unique and competitive.
 
 Although the current optical design is for imager and multi-object
-spectrograph (using slit masks), 
-from the science case discussions it has been pointed out that the 
-Integral-Field Spectroscopy (IFS) is a key function. IFS will enable us
-to resolve internal structures of extended objects, and it has become an
-indispensable observing method for studying the galaxy evolution.
+spectrograph using slit masks, from the science case discussions it has
+been pointed out that the Integral-Field Spectroscopy (IFS) is a key
+function. IFS will enable us to resolve internal structures of extended
+objects, and it has become an indispensable observing method for
+studying the galaxy evolution.
 There are some IFS instruments which can be used with the assistance of
 AO, such as VLT/SINFONI, Keck/OSIRIS, and Gemini/NIFS.
 The spatial resolution achieved by GLAO should not be as high as those
 by current single-conjugate AO systems, simultaneous IFS for multiple
-objects in wide FoV can be very unique and strong capability.
+objects in wide FoV can be very unique and strong
+capability\footnote{KMOS, a new NIR multi-IFS for VLT, will not be
+connected to AO systems}.
 
 We also recognize that GLAO will be able to improve image quality in
 optical wavelength ($\lambda > 0.6 \mu$m). Possibilities of new
 instruments in optical wavelength would be worth to be
 explored. Moreover, the use of adaptive secondary mirror could reduce
 the number of optics compared to classical AO systems, and thus thermal
-background radiation from telescope and instruments should be
-decreased. That would benefit observations in wavelength longer than
+background radiation from telescope and instruments can be
+suppressed. That would benefit observations in wavelength longer than 
 2$\mu$m. The adaptive secondary mirror (ASM) would also achieve very
 high on-source strehl ratio. ASM / GLAO is not a single instrument but
 can be regarded as significant telescope upgrade, and it will open up
@@ -198,7 +203,7 @@ instrument should have exciting capabilities over existing instruments.
 
 \section{Science with Wide-Field AO and New Instrument}
 
-\subsection{Complete Sensus of the Galaxy Evolution with Large-Scale
+\subsection{Complete Census of the Galaxy Evolution with Large-Scale
   Near-IR Surveys}
 
 Intensive studies of distant galaxies using 8--10m class telescopes, 
@@ -208,82 +213,88 @@ and evolution from the early stage of the universe to the present
 epoch. We now know that the cosmic star formation rate density or the
 average star formation rate for individual galaxies peaked around the
 cosmic age of 2--5 billion years ($z\sim1-3$), and since then the global
-star formation activity slowly is slowly declining. Stellar mass of
-individual galaxies has continuted to grow, and morphologies of giant
+star formation activity is slowly declining. Stellar mass of
+individual galaxies has been growing, and morphologies of giant
 galaxies such as spirals and ellipticals have emerged. At the same time,
 it has been strongly suggested that super massive black holes which
 reside in the center of galaxies have evolved in close connection with
 star-formation activities. 
-The big questions in the fieldd of galaxy evolution include:
+The big questions in the field of galaxy evolution include:
 \begin{itemize}
+ \setlength{\itemsep}{-3pt}
  \item what are the key parameters to drive the galaxy evolution among
        various phenomena that affect star formation activities in the
        galaxies?
- \item what detemines morphologies of the galaxies?
+ \item what determines morphologies of the galaxies?
 \end{itemize}
-Since distant galaxies appear to be small, many of past researches have
-been limited to observations of massive galaxies, and especially in many
-cases internal structures of such distant galaxies have been neglected. 
+Since distant galaxies are apparently small, many of past researches
+have been limited to observations of giant massive galaxies, and
+especially in many cases internal structures of such distant galaxies
+have been neglected. 
 Recent development of adaptive optics and sensitive integral field
 spectrographs have enabled to resolve those distant galaxies. 
 
 With {\it imaging observations}, we can obtain morphological information
 such as size, radial profiles of light sources (stars and ionized gas),
-assymetry, and color distribution. From the simulations of imaging
-observations with GLAO (Sec.~\ref{sec:gal_sim_imaging}) we found that we
-will be able to measure effective radii for less massive galaxies
-compared to seeing-limited observations. Measurements of morphological
-parameters for huge number of galaxies in various epochs and in wide 
-range of mass will enable us to clarify the evolutionary paths of
-stellar mass assembly, size, and morphology. We should also emphasize
-that we can install new narrow-band filters which are designed to
-capture important emission lines at specific redshifts to trace star
-formation activities in the multiple galaxies within the target
-field. Such addition of new filters and dispersion elements are one
-significant advantage of ground-based facilities over the space-bourne
-telescopes.
+asymmetry, and color distribution. From the simulations of imaging
+observations with GLAO, 
+%(Sec.~\ref{sec:gal_sim_imaging}) 
+we found that we will be able to measure effective radii for less
+massive galaxies compared to seeing-limited observations. Measurements
+of morphological parameters for huge number of galaxies in various
+epochs and in wide  range of mass will enable us to clarify the
+evolutionary paths of stellar mass assembly, size, and morphology. We
+should also emphasize that we can install new narrow-band filters which
+are designed to capture important emission lines at specific redshifts
+to trace star formation activities in the multiple galaxies within the
+target field. Such addition of new filters and dispersion elements are
+one significant advantage of ground-based facilities over the
+space-bourne telescopes.
 
 With {\it spectroscopic observations}, abundant physical information
 such as star formation rate, amount of dust, metallicity, gas
-kinematics, and outflow from galaxies into inter-galactic space. 
+kinematics, and outflow from galaxies into inter-galactic space can be
+obtained.
 Especially, multi-IFS (or slit-scan observations using multi-slit masks)
 is an effective way to collect `data cube' (spatial information and
-spectral information). IFS studies of distant galaxies were made
+spectral information). IFS studies of distant galaxies have been made 
 primarily for those with the most active star formation at those
 epochs, and because only one galaxy can be observed at a time, the
 number of sample galaxies are limited (several tens at most). If we
 consider the cost of telescope time, significant increase of the number
-of sample galaxies through such single-object IFS would not be
-expected. Survey using multi-IFS with a wide-field near-infrared 
-instrument assisted by GLAO can be a very unique observing capability in
-2020s. 
+of sample galaxies through such single-object IFS might not be
+expected. Survey using multi-IFS with a wide-field NIR instrument
+assisted by GLAO can be a very unique observing capability in 2020s. 
+
 It is well known that the history of galaxy evolution strongly depends
 on their environment. Systematics census of of (proto-)clusters of
 galaxies including their outskirt is a key observation to understand
 environmental effects, and GLAO + wide-field instrument is the best
 instrument for such studies. 
 The large survey of galaxies at $z\lsim 3$ with Subaru GLAO will produce
-the first statistically robust (possibily integral-field) spectroscopic
+the first statistically robust (possibly integral-field) spectroscopic
 database of distant galaxy populations.
 
 
 \subsection{Discovery of the Most Distant Galaxies and Understanding the
-  Cosmic Reionization with Narrow-band Imagign Surveys}
+  Cosmic Reionization with Narrow-band Imaging Surveys}
 
-Deep observations in near-infrared are challenged by strong OH lines of
+Deep observations in NIR are challenged by strong OH lines of
 the Earth's atmosphere. However, we can suppress background noise for
 imaging with narrow-band filters (NBF) which are designed to trace
-photons with wavelengths between such strong OH lines. In
-Section~\ref{sec:nbf} we discuss the possibility of searching Lyman
+photons with wavelengths between such strong OH lines. 
+In the study report
+%Section~\ref{sec:nbf} 
+we discuss the possibility of searching Lyman
 $\alpha$ emitting galaxies at $z>7$ with NBFs.
 Researches based on the Subaru Telescope's unique capability of
 wide-field imaging using the prime focus camera have achieved
 discoveries of many of the most distant galaxies. For the redshift of
 the current most distant galaxies, however, Lyman $\alpha$ emission is
 redshifted to the very end of the wavelength coverage of the optical
-instruments. We definitely need sensitive observations in the
-near-infrared to push the frontier of the most distant galaxies
-further and to understand the process of the cosmic reionization. 
+instruments. In order to push the frontier of the most distant galaxies
+further and to understand the process of the cosmic reionization, we
+definitely need sensitive observations in the NIR.
 
 Applications of NBF are not restricted to the search of distant Lyman
 $\alpha$ emitting galaxies. Various studies such as systematic survey of
@@ -294,6 +305,7 @@ benefit of wide-field near-infrared instrument assisted by GLAO.
 \subsection{Observing the Galactic Center}
 
 \begin{itemize}
+ \setlength{\itemsep}{-3pt}
  \item Imaging and spectroscopy of globular clusters toward the Galactic
        center: kinematics of the Galactic bulge and dark matter
        distribution
@@ -306,7 +318,7 @@ benefit of wide-field near-infrared instrument assisted by GLAO.
 
 \section{Synergy with the Extremely Large Telescopes}
 
-We aim at operation of Subaru GLAO around the end of 2010s and early
+We aim at operation of Subaru GLAO around the end of 2010s or early
 2020s. That is the epoch when Extremely Large Telescopes (ELTs) such as
 the Thirty Meter Telescope are expected to start their first-light
 observations. ELTs will have light collecting power and spatial
@@ -323,7 +335,7 @@ Prime Focus Spectrograph (PFS)\footnote{The spectral coverage of PFS is
 To implement observational capability which cannot be achieved by ELTs
 and to execute observations complimentary to those by ELTs should be key
 strategies for 8--10m class telescope in 2020s and later. 
-A combination of Subaru GLAO and wide-field near-IR instruments is one
+A combination of Subaru GLAO and wide-field NIR instruments is one
 of the most significant projects which further develop the uniqueness
 and advantage of Subaru Telescope and feed astronomical targets to ELTs
 for detailed characterizations.
@@ -345,6 +357,7 @@ Telescope.}}
 \subsection{Development Organization and Funding}
 
 \begin{itemize}
+ \setlength{\itemsep}{-3pt}
  \item Core group: next-generation AO study working group (Subaru
        Telescope AO team + scientists in Subaru and universities in
        Japan)
@@ -355,7 +368,7 @@ Telescope.}}
  \item NAOJ budget for Subaru Telescope modifications should be
        considered. 
  \item International partnerships are essentially important for both
-       human resources and fudning.
+       human resources and funding.
 \end{itemize}
 
 \subsection{Development Schedule}
