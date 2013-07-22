@@ -20,7 +20,7 @@ pdf: subaru_ngao_SR_en.pdf
 
 subaru_ngao_SR_en.dvi: clean subaru_ngao_SR_en.tex $(BIBFILES) $(TEXFILES)
 	platex subaru_ngao_SR_en.tex
-#	bibtex science/minowa/minowa
+	bibtex science/veryhighz/nbf
 #	bibtex science/koyama/ykoyama
 #	bibtex science/saito/saito
 #	bibtex science/shibuya/shibuya
