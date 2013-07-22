@@ -1,0 +1,10 @@
+
+*.aux
+
+*.dvi
+
+ngAO_studyreport/subaru_ngao_SR_en.log
+
+ngAO_studyreport/subaru_ngao_SR_en.out
+
+ngAO_studyreport/subaru_ngao_SR_en.toc
