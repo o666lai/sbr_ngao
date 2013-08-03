@@ -68,20 +68,39 @@ Optics\\Study Report\\(Draft)}
 \input{acronym}
 
 %%% Executive Summary
-\include{es/es}
+%\include{es/es}
 
-%%% Science
+%%% Intruduction
+\include{intro/introduction}
+
+%%% Science case and requirements
 \include{science/sci_intro}
 \include{science/veryhighz/nbf}
+%\include{science/}
+\include{science/sci_req}
 
-%%% AO Simulation
+%%% System Overview
+\include{sys/toplevelreq}
+\include{sys/sysreq}
+
+%%% GLAO Simulation
+%\include{simulation/intro}
 \include{simulation/glao/oya}
-\include{simulation/moao/akiyama}
+%\include{simulation/moao/akiyama}
 % galaxy simulation: imaging
 % galaxy simulation: spectroscopy
 
+%%% Observation Simulation
+\include{simulation/imaging}
+\include{simulation/spectroscopy}
+
 %%% System Design
 \include{development/design/system_design}
+\include{development/design/subsystem_design}
+\include{development/design/DSM_design}
+\include{development/design/Laser_design}
+\include{development/design/WFS_design}
+\include{development/design/Instrument_design}
 
 %%% Telescope
 \include{development/telescope/telescope}
@@ -90,9 +109,22 @@ Optics\\Study Report\\(Draft)}
 \include{instrument/inst}
 \include{instrument/optics/optcraft}
 \include{instrument/mechanics/mechanics}
+%\include{instrument/cryostat}
+
+%%% Technical challenges and risk
+%\include{GL_characteristics}
+%\include{DSM_calib}
+%\include{DSM_exchanger}
+%\include{Cassegrain_WFS_unit}
+%\include{WideFOVinstrument}
+%\include{MOS_IFS}
 
 %%% Development Plan
-\include{plan/plan}
+%\include{plan/management}
+%\include{plan/budget}
+%\include{plan/schedule}
+%\include{plan/risk_management}
+%\include{plan/descope_option}
 
 \end{document}
 
