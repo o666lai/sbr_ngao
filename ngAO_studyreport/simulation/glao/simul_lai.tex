@@ -1,0 +1,344 @@
+\documentclass[aas_macros,10pt]{article}
+
+\usepackage{graphicx}
+
+
+\oddsidemargin   -0.25cm
+\evensidemargin  -0.25cm
+\topmargin       -0.5cm
+\textwidth        16.5cm
+\textheight       23.0cm
+\parindent        11pt
+
+\begin{document}
+
+\section{Simulations of DM conjugation and cone effect
+\label{chap:simul_2}}
+
+\subsection{\texttt{instant\_GLAO} simulation tool}
+
+\texttt{instant\_GLAO} uses discrete phase screens to simulate a model atmosphere.
+The geometrical projections of the wavefronts are computed across the 
+field for wavefront sensing (using natural or laser guide stars) according 
+to the vertical distribution of the turbulence (Figure~\ref{fig:instant_GLAO-geometry}), 
+and the deformable mirror correction can be applied at any altitude to 
+maintain the wavefront correlations at any PSF location and allows to study 
+image quality variations across the field of interest: One of the main products 
+of \texttt{instant\_GLAO} are maps of image quality metrics \cite{Lai08, Lai10}. This implies that 
+phase screens can be very large (especially those at high altitude), so 
+one important simplifying assumption is made, namely that the temporal 
+error can be made small with respect to the other terms of the error 
+budget. The system is simulated as a series of independent phase 
+screens/corrections/corrected PSFs, but as a consequence, the system 
+is effectively running in open loop (in other words, there is no 
+correction of the turbulence applied to the wavefront sensor 
+measurements). Another important simplifying assumption, partly related 
+to this is that the measurement noise is neglected (noise filtering is 
+strongly related to the closed loop transfer functions). The main goal 
+for which \texttt{instant\_GLAO} was developed was to study the geometrical 
+effects of GLAO correction, i.e. PSF variation across the field of view, 
+DM misconjugation, static aberrations variation (and/or correction) 
+across the field of view, order of the system, correction versus 
+asterism size and geometry and distance to guide star(s), as well 
+as to study tomography and GLAO reconstructors.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{instant_GLAO-geometry.pdf}
+\caption{Geometry of the \texttt{instant\_GLAO} simulation code. Beams in different directions (guide star of field position) intersect layers at different altitudes in different locations. The deformable mirror can be conjugated to different altitudes in which case it is scaled to intercept all the beams. Residual wavefronts are calculated in the pupil for different field directions and associated PSF are computed and analyzed in terms of FWHM, NEA and Strehl ratio.}
+\label{fig:instant_GLAO-geometry}
+\end{figure}
+
+The baseline simulations to study DM conjugation used the following 
+parameters:
+\begin{itemize}
+\item Telescope Diameter: 7.92m
+\item F/D: 1.8
+\item Central obstruction: 1.265m
+\item Wavelengths: 660nm (R band), 1.25$\mu$m (J band), 1.65$\mu$m (H band), 2.2$\mu$m (K band)
+\item Number of guide stars: 6
+\item Asterism: Regular hexagon 15' diameter
+\item $D/r_0$: 52.66 (0.65'' integrated seeing at 500nm)
+\item $L_0$: 30m
+\item AO system: 6WFS, 30$\times$30 Shack Hartman with 31$\times$31 actuator piezostack type DM.
+\item No primary mirror aberrations, no dome seeing
+\item Model atmosphere: Standard Mauna Kea profile using 7 layers  (\cite{chun09}).
+
+\begin{tabular}{lccccccc}
+altitude & 0 & 15 & 30 & 90 & 270 & 900 & 1500 \\
+relative strength & 0.295 & 0.141 & 0.039 & 0.02 & 0.024 & 0.29 & 0.191 \\
+\end{tabular}
+
+\end{itemize}
+
+The topmost layer of the atmosphere is quite low. This is due to the 
+large phase screen size required; the main consequence is to reduce the 
+isokinetic angle of the free atmosphere but is not a very important 
+consideration for GLAO correction as at that altitude, the metapupil 
+is completely discontinuous, there is no overlap between the various 
+wavefront sensors and the free atmosphere is averaged out smoothly. 
+Also the number of guide stars is rather large to get good 
+averaging for GLAO, but similar performance can be obtained by using a 
+smaller ($\sim$4) number of guide stars and a tomographic reconstructor 
+(e.g. learn\&apply), 
+
+Usually, the best GLAO correction is achieved when the deformable mirror is conjugate to 
+the pupil and when most of the turbulence is close to it.However, achieving such 
+conjugation requires a relay and the Subaru GLAO system will use an adaptive secondary 
+mirror, which is inherently misconjuagted to the pupil and the turbulence. \texttt{instant\_GLAO} 
+allows to conjugate the deformable mirror to any altitude, so it is possible to quantitatively 
+estimate the consequence of this misconjugation.
+
+\subsection{Seeing limited (no GLAO) performance}
+
+Seeing limited PSFs are computed because even though the seeing is set to be 0.65" in the simulations, 
+this does not take into account the outer scale and the wavelength dependence of FWHM on wavelength. The 
+values of the seeing limited NEA can be used to normalize the values of the GLAO NEAs to obtain a direct 
+measurement of the improvement in observing efficiency (relative integration time to achieve a given SNR) 
+between GLAO and seeing limited observations \cite{King83}. For reference, the NEA (Noise Equivalent Area) 
+is equal to $1/\int(PSF)^2$ and is a measure of the equivalent area in which the background is equal to the 
+flux in the PSF; it defines the optimal aperture for background limited photometry and has units of $arcsec^2$. 
+It is a direct measure of relative integration time to achieve a given SNR on a point source.
+
+\begin{table}[ht]
+\centering
+\caption{FWHMs and NEA for Seeing limited PSFs including an outer scale of 30m.}
+\begin{tabular}{||r||c|c||c|c||} \hline\hline
+$\lambda$ & avg FWHM & Min/Max FWHM & avg NEA ($"^2$) & Min/Max NEA \\ \hline\hline
+660nm & 0.487" & 0.464"/0.502"  & 0.878  & 0.873/0.883 \\\hline
+1.25$\mu$m & 0.404" & 0.382"/0.421" & 0.659  & 0.653/0.665  \\ \hline
+1.65$\mu$m & 0.367" &  0.350"/0.385" & 0.573 & 0.570/0.579  \\ \hline
+2.2$\mu$m & 0.331"  & 0.308"/0.353" & 0.495 & 0.488/0.501 \\ \hline \hline 
+\end{tabular}
+\end{table}
+
+\subsection{Pupil conjugate DM}
+To serve as a baseline, a first case is presented whereby the deformable mirror is perfectly conjugate 
+to the pupil. Although this is not achievable in practice (without using a complicated relay), it 
+serves as a useful comparison when the deformable mirror is misconjugated. Although Monte Carlo 
+simulations can be accurate at quantifying various physical phenomena, they are always limited by the 
+level of realism that is included in the simulations and therefore cannot never be completely trusted 
+to predict the absolute level of performance. However, comparative Monte Carlo simulations can give an 
+accurate estimate of the relative performance of two systems when only one (or a few) parameters are 
+varied, as in the case, the DM misconjugation.
+
+\begin{table}[ht]
+\centering
+\caption{FWHMs and NEA for GLAO PSFs with DM conjugate to pupil.}
+\begin{tabular}{||r|c|c|c||c|c||} \hline\hline
+$\lambda$ & Field & avg FWHM & Min/Max FWHM & avg NEA ($"^2$) & Min/Max NEA \\ \hline\hline
+ 		& 10'$\times$10' & 0.345" & 0.330"/0.361" & 0.701 & 0.683/0.709 \\ \cline{2-6}
+ 660nm 	& 15'$\times$15' & 0.344" & 0.302"/0.370" & 0.700 & 0.624/0.755 \\ \cline{2-6}
+ 		& 20'$\times$20' & 0.352" & 0.302"/0.389" & 0.717 & 0.624/0.770 \\ \hline\hline
+		&  10'$\times$10' & 0.237" & 0.220"/0.250" & 0.397 & 0.374/0.407 \\ \cline{2-6}
+1.25$\mu$m & 15'$\times$15' & 0.239" & 0.212"/0.273" & 0.396 & 0.335/0.449 \\ \cline{2-6}
+		& 20'$\times$20' & 0.248" & 0.212"/0.285" & 0.412 & 0.335/0.467 \\ \hline\hline
+		& 10'$\times$10' & 0.187" &  0.173"/0.198" & 0.300 & 0.280/0.311 \\ \cline{2-6}
+1.65$\mu$m & 15'$\times$15' & 0.193" & 0.173"/0.231" & 0.300 & 0.257/0.349 \\ \cline{2-6}
+		& 20'$\times$20' & 0.204" & 0.173"/0.250" & 0.315 & 0.257/0.366 \\ \hline\hline
+		& 10'$\times$10' & 0.128" & 0.117"/0.152" & 0.224 & 0.210/0.233 \\ \cline{2-6}
+2.2$\mu$m & 15'$\times$15' & 0.148" & 0.117"/0.194" & 0.227 & 0.200/0.273 \\ \cline{2-6}
+		& 20'$\times$20' & 0.162" & 0.117"/0.209" & 0.241 & 0.200/0.290 \\ \hline \hline
+\end{tabular}
+\end{table}
+
+When compared to the seeing limited performance, two trends are apparent: the improvement in 
+FWHM and NEA increases at longer wavelengths and the improvement in NEA is not as large as the 
+improvement in FWHM. The former is understandable from the thickness of the residual atmosphere 
+and the residual phase associated with imperfect correction of a non-zero thickness layer. The 
+latter indicates that FWHM cannot be used as a proxy for performance especially when estimating 
+sensitivity improvements. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{FWHMS_standardprofile_30x30SH-0m.pdf}
+\includegraphics[width=8cm]{NEA_standardprofile_30x30SH-0m.pdf}
+\caption{Maps of FWHM (left) and NEA (right) with increasing wavelength (660nm, 1.25$\mu$m, 
+1.65$\mu$m, 2.2$\mu$m) for a DM conjugate to the telescope pupil. The top row shows each 20'$\times$20' 
+map stretched to its own wavelength minimum and maximum value, while the bottom row shows all the 
+wavelengths on the same color stretch}
+\label{fig:0mconjugation}
+\end{figure}
+
+The results are displayed on the maps displayed in figure~\ref{fig:0mconjugation}.The top row of 
+each figure shows the FWHMs and NEA with a color map stretched to the minimum and maximum value at 
+that wavelength, while the lower row shows the same results displayed relative to each other. The FWHM 
+maps appear noisier than the NEA maps; this is intrinsic to FWHM which is more sensitive to speckle noise 
+and is not as accurate an estimator of performance than NEA. Still, it is worthwhile to note how 
+homogeneous the correction is within the constellation and that it extends beyond it too. The correction 
+improves in the vicinity of the guide stars due to the residuals of the averaging of the wavefronts in 
+those directions.
+
+
+\subsection{-80m DM conjugation}
+
+In the case of Subaru Telescope, the deformable mirror will be an adaptive secondary mirror (ASM). 
+The current secondary mirror is 1.25m in diameter and is located 12m above the primary. This 
+corresponds to a conjugation of -80m. The wavefront sensors are conjugate to the pupil but pointed 
+in distinct directions, meaning that each one will see a different part of the ASM. The interaction 
+matrices for each WFS will therefore be different, but the control matrix is produced by concatenating 
+all the individual interaction matrices and inverting this large matrix by SVD; the reconstruction is 
+therefore a least square estimate of the global reconstructed wavefront, and takes care of the averaging 
+of the wavefront sensor measurements.
+
+\begin{table}[ht]
+\centering
+\caption{FWHMs and NEA for GLAO PSFs with DM conjugate to -80m.}
+\begin{tabular}{||r|c|c|c||c|c||} \hline\hline
+$\lambda$ & Field & avg FWHM & Min/Max FWHM & avg NEA ($"^2$) & Min/Max NEA \\ \hline\hline
+		& 10'$\times$10' & 0.364" & 0.343"/0.389" & 0.640 & 0.617/0.684 \\ \cline{2-6}
+660nm & 15'$\times$15' & 0.374" & 0.327"/0.434" & 0.669 & 0.604/0.816 \\  \cline{2-6}
+		& 20'$\times$20' & 0.395" & 0.327"/0.462" & 0.729 & 0.604/0.888 \\ \hline \hline
+		& 10'$\times$10' & 0.267" & 0.244"/0.284" & 0.400 & 0.383/0.428 \\ \cline{2-6}
+1.25$\mu$m & 15'$\times$15' & 0.270" & 0.244"/0.320" & 0.417 & 0.360/0.542 \\ \cline{2-6}
+		& 20$\times$20' & 0.285" & 0.244"/0.354" & 0.461 & 0.360/0.619 \\ \hline\hline
+		& 10'$\times$10' & 0.229" & 0.214"/0.241" & 0.315 & 0.302/0.338 \\ \cline{2-6}
+1.65$\mu$m & 15'$\times$15' & 0.233" & 0.210"/0.271" & 0.330 & 0.285/0.432 \\ \cline{2-6}
+		& 20'$\times$20' & 0.246" & 0.210"/0.300" & 0.366 & 0.285/0.504 \\ \hline\hline
+		& 10'$\times$10' & 0.195" & 0.183"/0.208" & 0.251 & 0.237/0.268 \\ \cline{2-6}
+2.2$\mu$m & 15'$\times$15' & 0.200" & 0.183"/0.240" & 0.261 & 0.230/0.338 \\ \cline{2-6}
+		& 20'$\times$20' & 0.211" & 0.183"/0.261" & 0.289 & 0.230/0.401 \\ \hline\hline
+\end{tabular}
+\label{tab:n80mconjugation}
+\end{table}
+
+The NEA at short wavelengths is improved in the center of the field compared to pupil conjugation, but decreases faster at the outer edges. At longer wavelengths, this trend disappears and the performance is degraded with respect to the pupil conjugate case.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{FWHMS_standardprofile_30x30SH-80m.pdf}
+\includegraphics[width=8cm]{NEA_standardprofile_30x30SH-80m.pdf}
+\caption{Maps of FWHM (left) and NEA (right) with increasing wavelength (660nm, 1.25$\mu$m, 1.65$\mu$m, 2.2$\mu$m) for a DM conjugate to -80m. The top row shows each 20'$\times$20' map stretched to its own wavelength minimum and maximum value, while the bottom row shows all the wavelengths on the same color stretch}
+\label{fig:n80mconjugation}
+\end{figure}
+
+In this case, the correction in the direction of the guide stars is not as well corrected (see Figure~\ref{fig:n80mconjugation}) because even though the measurement is the same as in the pupil conjugate case, there is no single DM shape that can correct the affront perfectly in the pupil for these specific directions. At all wavelengths, the correction is very homogeneous inside the constellation, possibly even more so than for a pupil conjugate DM, but at the expense of absolute level of correction. The FWHM is increased by 0.02" in the visible up to 0.07" in K band in the center of the field. The NEA is increased by a factor 1.12 at K band, though as noted this factor decreases at shorter wavelengths and reverses in the visible. The correction drops off faster outside of the constellation.
+
+\subsection{-80m DM and WFS conjugation}
+
+In order to reduce the mismatch between the wavefront sensors and the deformable mirror, it is possible to conjugate the wavefront sensors to the DM, so that irrespective of the direction of each wavefront sensor every actuator  corresponds to the same sub-aperture on each wavefront sensor, although not all the same subapertures will be illuminated. Each wavefront sensor will measure a different wavefront, but the inversion of the interaction matrix is much better conditioned this way. In theory this allows to improve the correction across the field at the expense of homogeneity.
+
+ \begin{table}[ht]
+\centering
+\caption{FWHMs and NEA for GLAO PSFs with DM conjugate to -80m.}
+\begin{tabular}{||r|c|c|c||c|c||} \hline\hline
+$\lambda$ & Field & avg FWHM & Min/Max FWHM & avg NEA ($"^2$) & Min/Max NEA \\ \hline\hline
+		& 10'$\times$10' & 0.362" & 0.341"/0.384" & 0.673 & 0.646/0.723 \\ \cline{2-6}
+660nm  & 15'$\times$15' & 0.373" & 0.333"/0.449" & 0.706 & 0.638/0.872 \\ \cline{2-6}
+		& 20'$\times$20' & 0.394" &  0.333"/0.464" & 0.760 & 0.638/0.948 \\ \hline \hline
+		& 10'$\times$10' & 0.254" & 0.237"/0.267" & 0.404 & 0.389/0.437 \\ \cline{2-6}
+1.25$\mu$m & 15'$\times$15' & 0.261" & 0.237"/0.312" & 0.429 & 0.370/0.577 \\ \cline{2-6}
+		& 20'$\times$20' & 0.277" & 0.237"/0.339" & 0.476 & 0.370/0.655 \\ \hline \hline
+		& 10'$\times$10' & 0.215" & 0.200"/0.230" & 0.313 & 0.300/0.333 \\ \cline{2-6}
+1.65$\mu$m & 15'$\times$15' & 0.222" & 0.200"/0.274" & 0.331 & 0.287/0.455 \\ \cline{2-6}
+		& 20'$\times$20' & 0.236" & 0.200"/0.291" & 0.371 & 0.287/0.524 \\ \hline\hline
+		& 10'$\times$10' & 0.159" & 0.148"/0.188" & 0.241 & 0.229/0.253 \\ \cline{2-6}
+2.2$\mu$m & 15'$\times$15' & 0.174" & 0.148"/0.237" & 0.254 & 0.223/0.352 \\ \cline{2-6}
+		& 20'$\times$20' & 0.191" & 0.148"/0.254" & 0.285 & 0.223/0.408 \\ \hline\hline
+\end{tabular}
+\label{tab:n80mconjugation2}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{FWHMS_standardprofile_30x30-80m_WFSconj.pdf}
+\includegraphics[width=8cm]{NEA_standardprofile_30x30-80m_WFSconj.pdf}
+\caption{Maps of FWHM (left) and NEA (right) with increasing wavelength (660nm, 1.25$\mu$m, 1.65$\mu$m, 2.2$\mu$m) for WFS and DM conjugate to -80m. The top row shows each 20'$\times$20' map stretched to its own wavelength minimum and maximum value, while the bottom row shows all the wavelengths on the same color stretch}
+\label{fig:n80mconjugation2}
+\end{figure}
+
+The results of conjugating the wavefront sensors to the deformrable mirror at -80m are summarized in table~\ref{tab:n80mconjugation2} and figure~\ref{fig:n80mconjugation2}. At short wavelengths, the effect is negligible and the results are mostly indistinguishable from conjugating the wavefront sensors to the pupil. At longer wavelengths though, a small but noticeable gain in FWHM and NEA is present though it certainly does not restore the performance obtained with the DM conjugate to the pupil.
+
+\subsection{Extrema of misconjugation for ASM}
+
+There is a cost versus performance trade-off associated with changing the DM conjugation: To reduce misconjugation and improve performance, the secondary mirror has to be moved closer to the primary, implying a larger mirror. Conversely, using a smaller secondary reduces its cost but increases misconjugation. The current maximum size for adaptive secondary mirrors is about 1.5m (ESO's ASM is 1.4m) which corresponds to -60m conjugation with Subaru's primary mirror focal length. There is an improvement in performance of 0.02" at short wavelengths to 0.03" at the longer ones compared to -80m conjugation. So although the performance in the center of the field is comparable to that of pupil conjugation at short wavelengths it is still 0.04" worse at longer wavelengths.
+
+Using a smaller ASM, for example 0.9m in diameter such as the one used in the LBT would be conjugated to -120m. Although the performance is almost undistinguishable to the -80m case for J, H and K bands, there is more image variation across the field and performance drops off faster outside of the constellation. There is a decrease in performance  at short wavelengths where the FWHMs are 0.02" larger than in the -80m case.
+
+\subsection{\texttt{yao} simulation tool in yorick}
+
+\texttt{yao} (Yorick Adaptive Optics) is a simulation package developed by Francois Rigaut with many contributors (Damien Gratadour, Benoit Neichel, Marcos van Dam, Fabrice Vidal). It is a very flexible tool coded in the yorick language and allows to simulate laser guide stars with many effects included, allowing for a great degree of realism. Although this simulation package allows to include photon (and read) noise as well as temporal bandwidth error, the simulations presented here use high values of photon flux in all cases to study the cone effect associated with Sodium Laser Guide Stars (LGS) and Rayleigh beacons (rLGS). Rayleigh beacons in particular are potentially very interesting for GLAO as the focal ansiplanatism has a small effect close to the pupil where the cone of the beacon overlaps well with the telescope beam focused at infinity and the high level turbulence of the free atmosphere is better averaged out. Since Rayleigh beacons have operational advantages too, it is worthwhile to explore this option for wavefront sensing.
+
+The following parameters have been used in the \texttt{yao} simulations:
+\begin{itemize}
+\item Telescope Diameter: 7.92m
+\item Central obstruction: 0.158 = 1.25m
+\item Wavelengths: 660nm (R band), 1.25$\mu$m (J band), 1.65$\mu$m (H band), 2.2$\mu$m (K band)
+\item Number of guide stars: 4
+\item Asterism:  square with 14' diagonal
+\item Seeing (at V band): 0.65"
+\item AO system: 
+\begin{itemize}
+\item 4WFS, 30$\times$30 Shack Hartman 
+\item with 31$\times$31 actuator piezostack type DM, conjugated to -80m.
+\end{itemize}
+\item for LGS only: 4 tip-tilt sensors on 14' square rotated 45$^{\circ}$ to LGS, with separate tip-tilt mirror.
+\item Minimum Mean Square Error (MMSE) matrix inversion.
+\item Closed loop with integrator feedback, loop gain=0.6.
+\item 1kHz loop rate, with 20000 iterations, leading to 20second average exposure.
+\item No primary mirror aberrations, no dome seeing
+\item Model atmosphere: Standard Mauna Kea profile using 7 layers:
+
+\begin{tabular}{lccccccc}
+altitude & 0m & 15m & 30m & 90m & 270m & 900m & 4000m \\
+relative strength & 0.295 & 0.141 & 0.039 & 0.02 & 0.024 & 0.29 & 0.191 \\
+wind speed & 6.5m/s & 8m/s & 10 m/s & 12m/s & 20 m/s & 30 m/s & 40 m/s \\
+\end{tabular}
+\end{itemize}
+
+So far the \texttt{yao} simulation package has only been used to study the cone effect applied to GLAO, but this is a very useful tool for end-to-end simulations once the system parameters will be more tightly defined. For example, it can be used to optimize the frame rate, number of subapertures or the number and size of pixels as a function of the return flux from LGS, as well as effects incurred by fratricide and off-axis spot elongation, which were not included in these simulations.
+
+\subsection{Cone effect as a function of beacon height in GLAO}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{FWHMs_Subaru_4GS-coneeffect2.pdf}
+\caption{Maps of FWHM with increasing wavelength (660nm, 1.25$\mu$m, 1.65$\mu$m, 2.2$\mu$m) from left to right. Top to bottom: 4 NGS, 4 Na LGS , 4 rLGS at 10km and 4rLGS at 2.5km. The guide stars are  on 14' diagonal square. It is unclear why the NGS case displays so much more variation in FWHM across the field.}
+\label{fig:coneeffect_FWHM}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{NEAs_Subaru_4GS-coneeffect2.pdf}
+\caption{Maps of NEA with same parameters as Figure~\ref{fig:coneeffect_FWHM}. The guide star locations are visible at noon, three o'clock, six o'cloak and nine o'clock. The area of best correction is elongated to the left on these maps, presumably due to improved residual in the wind direction.}
+\label{fig:coneeffect_NEA}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{STREHLs_Subaru_4GS-coneeffect2.pdf}
+\caption{Maps of Strehl with same parameters as Figure~\ref{fig:coneeffect_FWHM}. Although the Strehl ratio is usually not used as an indicator of performance, it is worthwhile to point out that with Rayleigh beacons, almost the entire field has a Strehl ratio $>$10\%.}
+\label{fig:coneeffect_STREHL}
+\end{figure}
+
+
+Ground Layer Adaptive Optics is different in many respects from classical (single conjugate) AO. For one, the wavefront sensors need more dynamic range as they are working in a semi-corrected regime akin to open loop. Therefore quad-cells, pyramid sensors or curvature sensors are not very well suited. GLAO WFS therefore require more pixels to properly measure the centroids: in the current simulations we use 12$\times$12 pixels each 0.2" for a field of 2.4" per subaperture, but this needs to be refined. Also, because the flux of the resulting PSF is spread of $(\lambda/r_{0,corr})^2$ instead of  $(\lambda/D)^2$ in diffraction limited imaging, the number of iterations necessary to obtain similar accuracy has to be increased by $(D/r_{0,corr})^2$. If the images are roughly improved by a factor 2 in FWHM, it implies that the corrected $r_{0,corr}$ is half of $r_0$, and the number of iterations has to be increased by roughly a factor 15 in the near IR. Clearly, with a much larger $D/r_0$, the short wavelength PSFs will have much more residual speckle noise; we have increased the number of iterations to 20000, which requires $>$24h for one \texttt{yao} run to complete, equivalent to a 20 second exposure. Finally, because GLAO only tries to correct for the turbulence common to the entire field, high altitude turbulence is not as important and the cone effect will be less detrimental than in SCAO. In fact, it may even be an advantage to use low beacons as each beam will only intersect a small portion of the high altitude layers (providing an effectively smaller $D/r_0$ and reducing the averaging error) as well as decorrelating faster at altitude. This was the motivation to study and compare different types of guide stars. 
+
+In this first round of simulations, we compared three type of guide star ULTIMATE-Subaru might be able to use:
+\begin{itemize}
+\item {\bf NGS}: Natural Guide stars are simulated for comparison purposes mostly. It is not a very practical option to use natural guide stars with a GLAO system, as they require probe arms that can patrol the field. These probes need to be as close as possible to a focal plane to minimize the area of the field lost, but they still need to be in front of the filters. Unless there is an intermediate focal plane, the penumbra of the mounts can lead to significant loss of field of view. Furthermore, irregular asterisms with varying brightness provide a very variable image quality across the field (this can be alleviated by using topographic reconstructors). Finally, the sky coverage with NGS for a 15' corrected field of view is rather limited.
+\item {\bf Na LGS}: Sodium Laser Guide Stars are currently the most likely choice for a variety of reasons: Being able to put 4 equally bright  guide sources in 4 corners of the field at fixed positions provides homogeneous image quality across the field with a simple implementation of fixed pick-off arms which provide minimum loss of field. Also laser Beacons are now well understood and new solid state lasers will soon provide enough power at Sodium doublet wavelengths to reduce the photon noise error to negligible levels. The cone effect of a Sodium beacon is noticeable in SCAO on an 8m telescope but its effect on GLAO should be almost negligible. Note that tip-tilt stars will still be needed for Sodium beacons, though by using 4 individual launch telescopes around the pupil and averaging the beacon positions, the tilt indeterminacy error may also be reduced. This will be the subject of further simulations.
+\item {\bf rLGS}: Rayleigh beacons have traditionally been neglected for large apertures SCAO due to the strong cone effect. However, Rayleigh beacons have advantages in terms of implementation and operations and deserve to be considered for GLAO even on a large telescope. Operations of UV lasers does not require FAA approval and the cost of UV lasers is quite reasonable due to their numerous industrial applications. Although Rayleigh beacons have been used for AO (e.g. RoboAO, \cite{Baranec13}) and GLAO (MMT, \cite{Baranec07, Hart10}), there are still implementation issues regarding gating, depth of focus and range. For example, gating at low altitudes ensures high return flux although this has to be balanced out against short exposure time to limit elongation effects. We have simulated Rayleigh beacons at 10km, which is the usual altitude for gating, as well as at 2.5km, which is below the highest turbulent layer. This would ensure high return flux, but working so far out of focus may incur other issues such as vignetting or partial illumination of the primary or secondary mirror. 
+\end{itemize}
+At this point we are only interested in quantifying the effects due to the geometry of the different beacons altitudes, so we did not include any implementation effects such as spot elongation or return flux. Results comparing the achievable FWHMs, NEAs and Strehl ratios using Natural, Sodium and Rayleigh (at 10km and 2.5km) guide stars are displayed in figures~\ref{fig:coneeffect_FWHM}, \ref{fig:coneeffect_NEA} and \ref{fig:coneeffect_STREHL} respectively. Quantitatively, the NEA (Figure~\ref{fig:coneeffect_NEA}) match those of \texttt{instant\_GLAO} conjugated to -80m (e.g. table~\ref{tab:n80mconjugation}).  
+
+FWHMs of 0.35" are enabled in the visible and improve to 0.2" to 0.1" in J and K band respectively in the near infrared. Surprisingly, natural guide stars provide the least performance both in terms of image quality and homogeneity. Sodium beacons and Rayleigh beacons at 10km provide almost identical performance, implying that the cone effect (although present since this performance is different than with NGS), is not detrimental to performance and even potentially beneficial for GLAO. Rayleigh beacons are noteworthy because of the homogeneity of image quality: 10km beacons differ from Sodium guide stars (assuming equal return flux) in smoothing out the residual image variation slightly. Very low Rayleigh beacons further smooth out the residual image quality variations across the field, providing a very homogenous PSF at the expense of local peak performance. This may be in parts because in that case, the beacons are below the highest altitude layer, so their measurement are not as affected by high altitude turbulence. It is also quite remarkable that with Laser Guide Stars, the Strehl ratio in K band is $>$10\% over almost the entire field; although not fully diffraction limited, the PSF starts to show a coherent core at such Strehl ratios, improving detectability of point-like objects against the background. 
+
+Laser Guide Stars, whether sodium or Rayleigh beacons are very favorable for ULTIMATE-Subaru, both in terms of sky coverage and image quality/homogeneity. The choose between Sodium or Rayleigh beacons requires further simulations, specifically to study the return flux as well as the effects of spot elongation, with careful consideration of operational and implementation issuess
+
+\subsection{Conclusion}
+
+We have presented two simulations tools (\texttt{instant\_GLAO} and \texttt{yao}) and their application to GLAO for Subaru Telescope. \texttt{instant\_GLAO} was used to investigate the effect of the deformable mirror's misconjugation, due to the secondary mirror's negative conjugation altitude in a Cassegrain telescope. We show that -80m produces a small decrease in average performance with respect to a pupil conjugate DM, although we note that pupil conjugation is not easy to achieve in practice (it requires a relay) and has its own set of drawbacks (such a tilted DM with respect to the pupil). \texttt{yao} was used to determine the consequences of using Rayleigh or Sodium beacons as opposed to natural stars for wavefront sensing. The results are not unexpected, and confirm that low altitude beacons provide better averaging of the uncorrelated, high altitude turbulence. In particular Rayleigh beacons appear attractive not only in terms of performance but also for operations. 
+
+These tools were used in a rudimentary fashion with many simplifying assumptions for a proof of concept, but are capable of much more detailed and complex simulations, which will be necessary at the preliminary design level. 
+
+
+\bibliographystyle{plain}
+
+\bibliography{simul_lai}
+
+\end{document}
+
+
+
+
